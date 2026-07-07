@@ -1,0 +1,5 @@
+# 新サイトでは Sitemap の URL を brand.config.ts の url に合わせて書き換える
+User-agent: *
+Allow: /
+
+Sitemap: https://your-project.pages.dev/sitemap.xml
