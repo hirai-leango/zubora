@@ -4,7 +4,7 @@ import { brand } from '~/brand.config'
 useSeo({
   title: `使い方 | ${brand.name}`,
   description:
-    'Zubora Foamの使い方はプッシュの回数だけ。1プッシュ＝顔、2プッシュ＝体、3プッシュ＝髪。毎日のお風呂での使い方を、順を追ってご紹介します。',
+    '朝、シャワーで、ポンポンポン。これで終わり。1プッシュで顔、2で体、3で髪。zubora foamの使い方は、それだけです。',
   path: '/scenes/',
 })
 
@@ -13,29 +13,29 @@ const pushRule = [
   {
     count: '1',
     target: '顔',
-    body: 'ワンプッシュ分の泡を、そのまま顔へ。ごしごしこすらず、泡を転がすくらいで十分です。ぬるま湯で流します。',
+    body: 'ポン、と1プッシュ。泡をそのまま顔へ。ごしごしせず、転がすくらいで、たぶん十分です。',
   },
   {
     count: '2',
     target: '体',
-    body: 'ツープッシュを手に取って、全身へ。泡はよく伸びます。タオルを使うかどうかは、お好みで。私たちは手で済ませる派です。',
+    body: 'ポンポン、と2プッシュ。手に取って、全身へ。泡はよく伸びるので、まあ、なんとかなります。',
   },
   {
     count: '3',
     target: '髪',
-    body: 'スリープッシュを頭皮になじませて、指の腹で洗います。髪が長い日や、汗をかいた日は、もうひと押ししても大丈夫。',
+    body: 'ポンポンポン、と3プッシュ。頭皮になじませて、指の腹で。髪の長い日は、もうひと押ししても。',
   },
 ]
 
 // 一日の流れ（ゆるく）
 const dailyFlow = [
   {
-    time: '夜、お風呂で',
-    body: '3→2→1の順（髪→体→顔）で洗うと、流し残しがなくて楽です。順番を忘れても、特に問題はありません。',
+    time: '朝、シャワーで',
+    body: 'ポンポンポン。これで終わり。出てきたら、もう朝の支度は半分済んでます。',
   },
   {
-    time: '朝、シャワーだけの日',
-    body: '顔にワンプッシュ、あとはお湯を浴びるだけ、でも成立します。朝の5分は貴重なので。',
+    time: '夜、お風呂で',
+    body: '3→2→1の順（髪→体→顔）だと流し残しがなくて楽。順番を忘れても、特に何も起きません。',
   },
   {
     time: '出張・ジム・旅行',
@@ -56,10 +56,11 @@ const tips = [
     <section class="px-5 pb-16 pt-20 md:px-8 md:pt-28">
       <div class="mx-auto max-w-5xl">
         <FadeIn>
-          <p class="text-sm tracking-wide text-kira-pink">how to use</p>
-          <h1 class="section-title mt-4 font-display">使い方は、数えるだけ。</h1>
+          <h1 class="font-display text-2xl font-semibold leading-loose tracking-wide md:text-4xl">
+            朝、シャワーで、ポンポンポン。<br />これで終わり。
+          </h1>
           <p class="mt-6 max-w-2xl leading-loose text-gold/70">
-            Zubora Foamの使い方は、プッシュの回数がすべてです。1、2、3。それ以上覚えることは、たぶんありません。
+            使い方は、プッシュの回数だけ。1、2、3。それ以上覚えることは、たぶんありません。
           </p>
         </FadeIn>
       </div>
@@ -126,7 +127,7 @@ const tips = [
             覚えました？ たぶん、もう大丈夫です。
           </p>
           <div class="mt-8">
-            <NuxtLink to="/products/" class="btn-holo">商品を見る</NuxtLink>
+            <NuxtLink to="/products/" class="btn-holo">とりあえず、見てみる</NuxtLink>
           </div>
         </FadeIn>
       </div>

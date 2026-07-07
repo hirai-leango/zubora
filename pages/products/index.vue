@@ -4,52 +4,39 @@ import { brand } from '~/brand.config'
 useSeo({
   title: `商品 | ${brand.name}`,
   description:
-    'Zubora Foam（ズボラフォーム）は、顔・体・頭皮を1本で洗えるオールインワン泡状洗浄料。アミノ酸系洗浄成分、弱酸性pH5.0-6.0、500ml、¥2,800。',
+    'zubora foam（泡クレンザー）。全身これ1本。1プッシュで顔、2で体、3で髪。アミノ酸系洗浄成分、弱酸性pH5.0-6.0、500ml、¥2,800。',
   path: '/products/',
 })
 
 const specs = [
-  { label: '品名', value: 'Zubora Foam（オールインワン泡状洗浄料）' },
-  { label: '使えるところ', value: '顔・体・頭皮（1本で洗えます）' },
-  { label: '使い方', value: '1プッシュ＝顔／2プッシュ＝体／3プッシュ＝髪' },
+  { label: '品名', value: 'zubora foam（オールインワン泡状洗浄料）' },
+  { label: '使えるところ', value: '全身これ1本（顔・体・髪）' },
+  { label: '使い方', value: '1プッシュで顔。2で体。3で髪。' },
   { label: '洗浄成分', value: 'アミノ酸系' },
   { label: 'pH', value: '弱酸性（pH5.0-6.0）' },
   { label: '容量', value: '500ml' },
   { label: '価格', value: '¥2,800（税込）' },
 ]
 
-const details = [
-  {
-    title: '泡で出てくる、を大事にしました',
-    body: '泡立てる工程は、たいてい省略されます。私たちも省略したい側の人間なので、最初から泡で出るポンプにしました。出てきた泡をそのまま顔へ、体へ、頭皮へ。',
-  },
-  {
-    title: '洗いすぎない、を基準にしました',
-    body: '1本で全身を洗うなら、いちばん繊細な場所に合わせるべきだと考えました。アミノ酸系の洗浄成分と弱酸性pH5.0-6.0は、顔基準の設計です。',
-  },
-  {
-    title: '香りは、ほのかに',
-    body: 'バスルームに主張しすぎない、静かな香りにしています。「なんかいい匂いする」くらいの距離感が、たぶんちょうどいい。',
-  },
-]
-
 const notFor = [
-  'スタイリング剤（ワックス・スプレーなど）を毎日しっかり使う方。1回の洗浄では落ちにくいことがあります。',
-  '頭皮の皮脂が多めで、洗浄力の強いシャンプーのほうが調子がいい方。',
+  'がっつりスタイリングする人。ワックスやスプレーは、1回では落ちにくいことがあります。',
+  '脂性の頭皮の人。洗浄力の強いシャンプーのほうが、たぶん合っています。',
 ]
 </script>
 
 <template>
   <div class="bg-night">
-    <!-- ===== Page Header ===== -->
+    <!-- ===== Scene opening ===== -->
     <section class="px-5 pb-16 pt-20 md:px-8 md:pt-28">
       <div class="mx-auto max-w-5xl">
         <FadeIn>
-          <p class="text-sm tracking-wide text-kira-pink">product</p>
-          <h1 class="section-title mt-4 font-display">Zubora Foam</h1>
-          <p class="mt-6 max-w-2xl leading-loose text-gold/70">
-            シャンプーと、洗顔料と、ボディソープ。3本あった理由を、私たちはうまく思い出せませんでした。だから、1本にしました。
+          <p class="font-display text-xl leading-loose tracking-wide text-gold/80 md:text-2xl md:leading-[2]">
+            朝、シャワーを浴びて、出てくる。<br />
+            使ったボトルは、1本だけ。<br />
+            それだけの話なんですが、なんか、いいんです。
           </p>
+          <h1 class="mt-12 font-display text-2xl font-semibold lowercase tracking-wide md:text-3xl">zubora foam</h1>
+          <p class="mt-3 text-sm text-gold/60">泡クレンザー / 発売中</p>
         </FadeIn>
       </div>
     </section>
@@ -84,36 +71,18 @@ const notFor = [
               </div>
             </dl>
             <p class="mt-6 text-sm leading-loose text-gold/60">
-              顔・体・頭皮を洗えます。プッシュの回数だけ覚えれば、あとはいつも通りお風呂に入るだけです。
+              覚えるのは、プッシュの数だけ。1で顔、2で体、3で髪。それ以上は、まあ、ないです。アミノ酸系の洗浄成分で、弱酸性。手は抜いていい。品質は、抜いてない。
             </p>
           </div>
         </FadeIn>
       </div>
     </section>
 
-    <!-- ===== Details ===== -->
+    <!-- ===== Not recommended ===== -->
     <section class="bg-night-deep px-5 py-24 md:px-8">
       <div class="mx-auto max-w-5xl">
         <FadeIn>
-          <p class="text-sm tracking-wide text-kira-purple">details</p>
-          <h2 class="section-title mt-4 font-display">地味なこだわり、3つ。</h2>
-        </FadeIn>
-        <div class="mt-12 grid gap-6 md:grid-cols-3">
-          <FadeIn v-for="(detail, i) in details" :key="detail.title" :delay="i * 100">
-            <div class="glass-card h-full p-8">
-              <h3 class="text-lg font-semibold leading-snug tracking-wide">{{ detail.title }}</h3>
-              <p class="mt-3 text-sm leading-loose text-gold/70">{{ detail.body }}</p>
-            </div>
-          </FadeIn>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Not recommended ===== -->
-    <section class="px-5 py-24 md:px-8">
-      <div class="mx-auto max-w-5xl">
-        <FadeIn>
-          <h2 class="text-xl font-semibold tracking-wide">こんな方には、たぶん向きません</h2>
+          <h2 class="text-xl font-semibold tracking-wide">こんな人には向かない</h2>
           <ul class="mt-6 max-w-2xl space-y-3 text-sm leading-loose text-gold/70">
             <li v-for="item in notFor" :key="item" class="flex gap-3">
               <span class="mt-0.5 text-kira-cyan" aria-hidden="true">△</span>
@@ -121,7 +90,21 @@ const notFor = [
             </li>
           </ul>
           <p class="mt-6 max-w-2xl text-sm leading-loose text-gold/50">
-            合わないかも、と思ったら無理をしないでください。1本にまとめるのは手段であって、目的ではないので。
+            正直に言うと、合わないと思う。無理はしないでください。
+          </p>
+        </FadeIn>
+      </div>
+    </section>
+
+    <!-- ===== Coming soon: sweat ===== -->
+    <section class="px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
+        <FadeIn>
+          <p class="text-xs tracking-widest text-gold/50">スウェット / 近日</p>
+          <h2 class="mt-3 font-display text-2xl font-semibold lowercase tracking-wide">zubora sweat</h2>
+          <p class="mt-6 max-w-2xl leading-loose text-gold/70">
+            着崩してるけど、似合ってる。男女、どっちでも。ちゃんといい生地。でも、ロゴは小さく。<br />
+            近日、出ます。たぶん。
           </p>
         </FadeIn>
       </div>

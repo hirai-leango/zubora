@@ -32,7 +32,7 @@ watch(
       <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-5 md:px-8">
         <NuxtLink to="/" class="flex items-baseline gap-2">
           <span class="font-display text-xl font-semibold lowercase tracking-wide">{{ brand.name }}</span>
-          <span class="hidden text-[11px] tracking-wide text-gold/50 sm:inline">全身これ1本、のフォーム</span>
+          <span class="hidden text-[11px] tracking-wide text-gold/50 sm:inline">何もしてないのに、いい感じ。</span>
         </NuxtLink>
 
         <!-- Desktop nav -->
@@ -125,7 +125,7 @@ watch(
           </NuxtLink>
         </nav>
         <p class="mt-10 text-xs leading-relaxed text-gold/40">
-          このサイトを最後まで読むより、お風呂に入ったほうが早いかもしれません。
+          シャンプー、洗顔、ボディソープ。全部これです。
         </p>
         <p class="mt-2 text-xs text-gold/40">
           &copy; {{ new Date().getFullYear() }} {{ brand.name }}. All rights reserved.
