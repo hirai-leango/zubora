@@ -15,15 +15,15 @@
 
 export const brand = {
   // ── ブランド基本情報 ───────────────────────────────
-  name: 'ブランド名をここに',            // 例: キラキラテキーラ
-  tagline: 'キャッチコピーをここに',      // 例: 一杯が、特別な体験になる
+  name: 'zubora',
+  tagline: 'ズボラで、普通よりいい状態。',
   description:
-    'このサイトの説明文（120字前後）。meta description / OGP / JSON-LD に使われる。',
+    'シャンプーも、洗顔料も、ボディソープも。本当に分ける必要があるのか。zuboraは問いかける。',
 
   // ── サイトURL ──────────────────────────────────────
   // 初期は pages.dev。独自ドメイン取得後にここだけ .com などへ書き換える。
   // 末尾スラッシュは付けない（コード側で付与）。
-  url: 'https://your-project.pages.dev',
+  url: 'https://zubora.pages.dev',
 
   // ── 計測・連絡先 ───────────────────────────────────
   ga4Id: '',                             // 例: G-XXXXXXXXXX（未取得なら空文字）
@@ -37,9 +37,9 @@ export const brand = {
   // 見出し用・本文用を差し替えるとサイトの印象が大きく変わる。
   fonts: {
     googleFontsHref:
-      'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap',
+      'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600&display=swap',
     sans: ['"Noto Sans JP"', 'sans-serif'],
-    display: ['"Playfair Display"', 'serif'],
+    display: ['"Noto Serif JP"', 'serif'],
   },
 } as const
 
@@ -49,13 +49,13 @@ export const brand = {
  * キー名（bg / accent1 ...）は固定。値（HEX）だけ変える。
  */
 export const palette = {
-  bg: '#0d0020',        // 背景（ダーク）
-  bgDeep: '#0a0a0a',    // より深い背景
-  accent1: '#FFD700',   // 主役アクセント（例: ゴールド）
-  accent2: '#FF69B4',   // サブアクセント（例: ピンク）
-  accent3: '#BF5FFF',   // サブアクセント（例: パープル）
-  accent4: '#00FFFF',   // 差し色（例: シアン）
-  text: '#FFFFFF',
+  bg: '#F4F1EA',        // 背景（明るい生成り）
+  bgDeep: '#EDE8DE',    // 少し深い背景
+  accent1: '#2B2926',   // 主役アクセント（洗いざらしの黒）
+  accent2: '#8A9A82',   // サブアクセント（セージグリーン）
+  accent3: '#9AAAB4',   // サブアクセント（ダストブルー）
+  accent4: '#B8AE9C',   // 差し色（グレージュ）
+  text: '#2B2926',
 } as const
 
 /**
@@ -66,10 +66,11 @@ export const palette = {
 export const seo = {
   // 検索ボリュームは実データ（ラッコキーワード等）で埋めるのが理想
   clusters: [
-    { name: '基礎知識',       intent: '認知・流入', keywords: ['〇〇 とは', '〇〇 種類', '〇〇 選び方'] },
-    { name: 'エリア/店舗',    intent: '来店・比較', keywords: ['〇〇 東京', '〇〇 おすすめ'] },
-    { name: '体験/使い方',    intent: '欲求喚起', keywords: ['〇〇 楽しみ方', '〇〇 演出'] },
-    { name: 'ブランド文脈',   intent: '指名・転換', keywords: ['ブランド名', '〇〇 特別 体験'] },
+    { name: 'オールインワン洗浄',   intent: '認知・流入', keywords: ['オールインワン 洗浄 とは', '全身洗える ソープ', 'オールインワン 洗顔 体'] },
+    { name: '全身シャンプー',       intent: '比較・検討', keywords: ['全身シャンプー おすすめ', '全身シャンプー 大人', '全身シャンプー デメリット'] },
+    { name: 'アミノ酸系洗浄成分',   intent: '認知・信頼', keywords: ['アミノ酸系 洗浄成分 とは', 'アミノ酸シャンプー 弱酸性', '洗浄成分 やさしい'] },
+    { name: 'ミニマリストケア',     intent: '欲求喚起', keywords: ['ミニマリスト スキンケア', 'バスルーム ミニマル', '持たない暮らし お風呂'] },
+    { name: '時短ケア',             intent: '欲求喚起・転換', keywords: ['時短 お風呂', '朝シャワー 時短', 'めんどくさい スキンケア'] },
   ],
 } as const
 
@@ -80,7 +81,7 @@ export const seo = {
  */
 export const agent = {
   model: 'claude-fable-5',   // モデルが変わったらここだけ更新
-  repo: 'https://github.com/hirai-leango/your-project',
+  repo: 'https://github.com/hirai-leango/zubora',
   articlesPerBatch: 20,      // 1バッチの記事数（新モデルほど増やせる）
   commitEvery: 5,            // 何記事ごとに commit&push するか
 } as const

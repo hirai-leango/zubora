@@ -4,12 +4,10 @@ import { brand } from '~/brand.config'
 const menuOpen = ref(false)
 
 const navLinks = [
-  { to: '/', label: 'トップ' },
-  { to: '/about/', label: 'ブランド' },
   { to: '/products/', label: '商品' },
-  { to: '/scenes/', label: '活用シーン' },
-  { to: '/voices/', label: '口コミ' },
-  { to: '/blog/', label: 'ブログ' },
+  { to: '/scenes/', label: '使い方' },
+  { to: '/blog/', label: 'ジャーナル' },
+  { to: '/about/', label: 'zuboraについて' },
   { to: '/contact/', label: 'お問い合わせ' },
 ]
 
@@ -28,23 +26,23 @@ watch(
 </script>
 
 <template>
-  <div class="flex min-h-screen flex-col bg-night">
+  <div class="flex min-h-screen flex-col bg-night text-gold">
     <!-- Header -->
-    <header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-night/70 backdrop-blur-md">
-      <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
-        <NuxtLink to="/" class="hover-sparkle flex items-center gap-2">
-          <span class="text-xl" aria-hidden="true">✦</span>
-          <span class="text-shimmer text-lg font-black tracking-widest md:text-xl">{{ brand.name }}</span>
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-gold/10 bg-night/85 backdrop-blur-md">
+      <div class="mx-auto flex h-16 max-w-5xl items-center justify-between px-5 md:px-8">
+        <NuxtLink to="/" class="flex items-baseline gap-2">
+          <span class="font-display text-xl font-semibold lowercase tracking-wide">{{ brand.name }}</span>
+          <span class="hidden text-[11px] tracking-wide text-gold/50 sm:inline">全身これ1本、のフォーム</span>
         </NuxtLink>
 
         <!-- Desktop nav -->
-        <nav class="hidden items-center gap-8 md:flex" aria-label="メイン">
+        <nav class="hidden items-center gap-7 md:flex" aria-label="メイン">
           <NuxtLink
             v-for="link in navLinks"
             :key="link.to"
             :to="link.to"
-            class="text-sm font-bold tracking-widest text-white/80 transition-colors hover:text-gold"
-            active-class="text-gold"
+            class="text-sm text-gold/70 transition-colors hover:text-gold"
+            active-class="text-gold underline decoration-kira-pink decoration-2 underline-offset-8"
           >
             {{ link.label }}
           </NuxtLink>
@@ -80,14 +78,14 @@ watch(
       >
         <nav
           v-if="menuOpen"
-          class="border-t border-white/10 bg-night/95 backdrop-blur-md md:hidden"
+          class="border-t border-gold/10 bg-night/95 backdrop-blur-md md:hidden"
           aria-label="モバイルメニュー"
         >
           <NuxtLink
             v-for="link in navLinks"
             :key="link.to"
             :to="link.to"
-            class="block border-b border-white/5 px-6 py-4 font-bold tracking-widest text-white/80 transition-colors hover:text-gold"
+            class="block border-b border-gold/5 px-6 py-4 text-gold/80 transition-colors hover:text-gold"
             active-class="text-gold"
           >
             {{ link.label }}
@@ -102,33 +100,34 @@ watch(
     </main>
 
     <!-- Footer -->
-    <footer class="relative overflow-hidden border-t border-white/10 bg-night-deep">
-      <SparkleBackground :count="14" :seed="99" />
-      <div class="relative z-10 mx-auto max-w-6xl px-6 py-12 text-center">
-        <p class="text-holo text-2xl font-black tracking-widest">{{ brand.name }}</p>
-        <p class="mt-2 font-display text-sm italic text-white/50">{{ brand.tagline }}</p>
-        <nav class="mt-6 flex flex-wrap justify-center gap-6" aria-label="フッター">
+    <footer class="border-t border-gold/10 bg-night-deep">
+      <div class="mx-auto max-w-5xl px-5 py-14 md:px-8">
+        <p class="font-display text-2xl font-semibold lowercase tracking-wide">{{ brand.name }}</p>
+        <p class="mt-2 text-sm text-gold/60">{{ brand.tagline }}</p>
+        <nav class="mt-8 flex flex-wrap gap-x-7 gap-y-3" aria-label="フッター">
           <NuxtLink
             v-for="link in navLinks"
             :key="link.to"
             :to="link.to"
-            class="text-sm text-white/60 transition-colors hover:text-gold"
+            class="text-sm text-gold/60 transition-colors hover:text-gold"
           >
             {{ link.label }}
           </NuxtLink>
         </nav>
-        <nav class="mt-4 flex flex-wrap justify-center gap-x-6 gap-y-2" aria-label="規約・ポリシー">
+        <nav class="mt-4 flex flex-wrap gap-x-7 gap-y-2" aria-label="規約・ポリシー">
           <NuxtLink
             v-for="link in legalLinks"
             :key="link.to"
             :to="link.to"
-            class="text-xs text-white/50 transition-colors hover:text-gold"
+            class="text-xs text-gold/50 transition-colors hover:text-gold"
           >
             {{ link.label }}
           </NuxtLink>
         </nav>
-        <!-- 注意書きが必要な商材（酒類など）はここに免責・法定表示を追加する -->
-        <p class="mt-8 text-xs text-white/40">
+        <p class="mt-10 text-xs leading-relaxed text-gold/40">
+          このサイトを最後まで読むより、お風呂に入ったほうが早いかもしれません。
+        </p>
+        <p class="mt-2 text-xs text-gold/40">
           &copy; {{ new Date().getFullYear() }} {{ brand.name }}. All rights reserved.
         </p>
       </div>

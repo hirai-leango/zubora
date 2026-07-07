@@ -7,211 +7,176 @@ useSeo({
   path: '/',
 })
 
-// ここに商品・サービスの3つの強みを書く
-const storyPoints = [
+// プッシュルール：1プッシュ＝顔、2プッシュ＝体、3プッシュ＝髪
+const pushRule = [
   {
-    icon: '✨',
-    title: '特徴その1',
-    description:
-      'ここに1つ目の特徴の説明文を入れる。何がどう優れているのか、具体的なディテールを2〜3文で書く。',
+    count: '1',
+    target: '顔',
+    note: 'ワンプッシュを軽く泡立てて、顔へ。朝の寝ぼけた手でも、たぶん間違えない量です。',
   },
   {
-    icon: '💫',
-    title: '特徴その2',
-    description:
-      'ここに2つ目の特徴の説明文を入れる。競合との違いや、こだわりのポイントを2〜3文で書く。',
+    count: '2',
+    target: '体',
+    note: 'ツープッシュで全身へ。泡はよく伸びるので、背中の届く範囲まででだいたい足ります。',
   },
   {
-    icon: '⭐',
-    title: '特徴その3',
-    description:
-      'ここに3つ目の特徴の説明文を入れる。品質・体験・価格など、選ばれる理由を2〜3文で書く。',
+    count: '3',
+    target: '髪',
+    note: 'スリープッシュを頭皮になじませて。髪の長い日は、まあ、もうひと押ししてもいいと思います。',
   },
 ]
 
-// ここに主力プロダクト（2つ）を書く
-const teaserProducts = [
+// 商品のポイント（控えめに、事実だけ）
+const productPoints = [
   {
-    emoji: '🎁',
-    en: 'PRODUCT 01',
-    name: '商品名その1',
-    description:
-      'ここに商品1の紹介文を入れる。どんな場面で、誰に、どんな価値を届けるのかを書く。',
-    glow: 'hover:shadow-glow-pink',
-    accent: 'text-kira-pink',
+    title: 'アミノ酸系の洗浄成分',
+    body: '洗浄のベースはアミノ酸系。強く脱脂しすぎない設計なので、顔にも体にも頭皮にも使えます。',
   },
   {
-    emoji: '🎀',
-    en: 'PRODUCT 02',
-    name: '商品名その2',
-    description:
-      'ここに商品2の紹介文を入れる。商品1との違いや、組み合わせて使う魅力を書く。',
-    glow: 'hover:shadow-glow-cyan',
-    accent: 'text-kira-cyan',
+    title: '弱酸性 pH5.0-6.0',
+    body: '肌に近い弱酸性に整えています。派手さはないけれど、毎日のことなので、ここは真面目にやりました。',
+  },
+  {
+    title: 'ボトルは1本だけ',
+    body: 'シャンプー、洗顔料、ボディソープの置き場所が、ひとつにまとまります。バスルームが、なんか広い。',
   },
 ]
 
-// ここに体験の流れ（3ステップ）を書く
-const experienceSteps = [
-  {
-    step: '01',
-    title: 'ステップ1の見出し',
-    description: 'ここにステップ1の説明を入れる。ユーザーが最初に体験する瞬間を描写する。',
-  },
-  {
-    step: '02',
-    title: 'ステップ2の見出し',
-    description: 'ここにステップ2の説明を入れる。体験が盛り上がる中心の瞬間を描写する。',
-  },
-  {
-    step: '03',
-    title: 'ステップ3の見出し',
-    description: 'ここにステップ3の説明を入れる。体験の余韻や、シェアしたくなる理由を描写する。',
-  },
+// 向いている人・向かない人（正直に）
+const goodFor = [
+  '風呂場のボトルを減らしたい人',
+  'スキンケアを「続く仕組み」にしたい人',
+  '出張やジムに1本だけ持っていきたい人',
+  '家族のボトルが誰のか分からなくなっている人',
+]
+
+const notFor = [
+  'スタイリング剤を毎日しっかり使う人（1回では落ちにくいことがあります）',
+  '頭皮の皮脂が多めで、洗浄力の強いシャンプーが合っている人',
 ]
 </script>
 
 <template>
   <div class="bg-night">
     <!-- ===== Hero ===== -->
-    <section class="relative flex min-h-[calc(100vh-4rem)] items-center justify-center overflow-hidden">
-      <!-- 背景グロー -->
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(191,95,255,0.22)_0%,transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,105,180,0.14)_0%,transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(0,255,255,0.12)_0%,transparent_50%)]"
-        aria-hidden="true"
-      />
-      <!-- きらめき背景 -->
-      <SparkleBackground :count="36" :diamonds="14" :seed="7" />
-
-      <div class="relative z-10 px-6 py-20 text-center">
-        <p class="font-display text-sm italic tracking-[0.5em] text-gold md:text-base">
-          BRAND CONCEPT
-        </p>
-        <h1 class="text-holo mt-6 text-5xl font-black leading-tight tracking-wider md:text-8xl">
-          {{ brand.name }}
-        </h1>
-        <p class="text-shimmer mt-8 text-xl font-black tracking-[0.25em] md:text-3xl">
-          {{ brand.tagline }}
-        </p>
-        <p class="mt-6 leading-loose text-white/70 md:text-lg">
-          ここにヒーローの補足文を入れる。<br class="md:hidden" />
-          ブランドの世界観をひとことで伝える。
-        </p>
-        <div class="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <NuxtLink to="/products/" class="btn-holo hover-sparkle">商品を見る</NuxtLink>
-          <NuxtLink to="/contact/" class="btn-outline-holo">お問い合わせ</NuxtLink>
-        </div>
-      </div>
-
-      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-gold" aria-hidden="true">
-        <span class="block animate-bounce text-2xl">▾</span>
-      </div>
-    </section>
-
-    <!-- ===== Brand Story ===== -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-night via-night-soft to-night py-24">
-      <SparkleBackground :count="16" :seed="21" />
-      <div class="relative z-10 mx-auto max-w-5xl px-6">
+    <section class="px-5 md:px-8">
+      <div class="mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col justify-center py-20">
         <FadeIn>
-          <div class="text-center">
-            <p class="font-display text-sm italic tracking-[0.4em] text-kira-pink">BRAND STORY</p>
-            <h2 class="text-holo mt-4 section-title">ここにブランドの核となる一文</h2>
-            <div class="holo-divider" />
-            <p class="mx-auto mt-10 max-w-3xl leading-loose text-white/80 md:text-lg">
-              ここにブランドストーリーの導入文を入れる。<br class="hidden md:block" />
-              どんな課題や想いから生まれたのかを、<br class="hidden md:block" />
-              3行程度で情緒的に書く。
-            </p>
-          </div>
-        </FadeIn>
-
-        <div class="mt-16 grid gap-8 md:grid-cols-3">
-          <FadeIn v-for="(point, i) in storyPoints" :key="point.title" :delay="i * 120">
-            <div class="glass-card hover-sparkle h-full p-8 text-center">
-              <span class="text-4xl" aria-hidden="true">{{ point.icon }}</span>
-              <h3 class="mt-5 text-xl font-black tracking-wider text-gold">{{ point.title }}</h3>
-              <p class="mt-4 text-sm leading-loose text-white/70">{{ point.description }}</p>
-            </div>
-          </FadeIn>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Product Teaser ===== -->
-    <section class="relative overflow-hidden py-24">
-      <div class="mx-auto max-w-5xl px-6">
-        <FadeIn>
-          <div class="text-center">
-            <p class="font-display text-sm italic tracking-[0.4em] text-kira-cyan">LINE UP</p>
-            <h2 class="text-holo mt-4 section-title">プロダクトラインアップ</h2>
-            <div class="holo-divider" />
-          </div>
-        </FadeIn>
-
-        <div class="mt-16 grid gap-8 md:grid-cols-2">
-          <FadeIn v-for="(product, i) in teaserProducts" :key="product.name" :delay="i * 150">
-            <NuxtLink
-              to="/products/"
-              class="glass-card group relative block overflow-hidden p-10 text-center"
-              :class="product.glow"
-            >
-              <SparkleBackground :count="10" :seed="i * 31 + 3" />
-              <div class="relative z-10">
-                <span
-                  class="inline-block text-6xl transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6"
-                  aria-hidden="true"
-                >
-                  {{ product.emoji }}
-                </span>
-                <p class="mt-6 font-display text-xs italic tracking-[0.4em]" :class="product.accent">
-                  {{ product.en }}
-                </p>
-                <h3 class="mt-2 text-2xl font-black tracking-widest text-white">{{ product.name }}</h3>
-                <p class="mt-4 text-sm leading-loose text-white/70">{{ product.description }}</p>
-                <span class="mt-6 inline-block text-sm font-bold tracking-widest text-gold">
-                  詳しく見る →
-                </span>
-              </div>
+          <p class="text-sm tracking-wide text-kira-pink">zubora foam ― 全身これ1本の泡</p>
+          <h1 class="mt-6 max-w-3xl font-display text-3xl font-semibold leading-relaxed tracking-wide md:text-5xl md:leading-snug">
+            誰かが決めた。<br />
+            シャンプーのあとに、<br class="md:hidden" />コンディショナーを、と。
+          </h1>
+          <p class="mt-8 max-w-2xl font-display text-xl leading-relaxed text-gold/80 md:text-2xl">
+            でも、本当に分ける必要ある？
+          </p>
+          <p class="mt-8 max-w-xl leading-loose text-gold/70">
+            zuboraは、顔と体と頭皮をひとつの泡で洗うためのブランドです。<br class="hidden md:block" />
+            がんばらない人が、なんか、ちゃんとしてる。そういう状態をつくります。
+          </p>
+          <div class="mt-12 flex flex-wrap items-center gap-5">
+            <NuxtLink to="/products/" class="btn-holo">詳しく見る</NuxtLink>
+            <NuxtLink to="/scenes/" class="text-sm text-gold/60 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-gold">
+              使い方はこちら
             </NuxtLink>
+          </div>
+        </FadeIn>
+      </div>
+    </section>
+
+    <!-- ===== Push Rule ===== -->
+    <section class="bg-night-deep px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
+        <FadeIn>
+          <p class="text-sm tracking-wide text-kira-pink">push rule</p>
+          <h2 class="section-title mt-4 font-display">覚えることは、3つだけ。</h2>
+          <p class="mt-6 max-w-2xl leading-loose text-gold/70">
+            プッシュの回数が、そのまま使い方です。説明書を読むのが面倒な人のために（つまり、私たちのために）そう設計しました。
+          </p>
+        </FadeIn>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <FadeIn v-for="(rule, i) in pushRule" :key="rule.target" :delay="i * 100">
+            <div class="glass-card h-full p-8">
+              <p class="font-display text-5xl font-semibold text-kira-pink">{{ rule.count }}</p>
+              <p class="mt-2 text-sm tracking-widest text-gold/50">push</p>
+              <h3 class="mt-4 text-xl font-semibold tracking-wide">{{ rule.target }}</h3>
+              <p class="mt-3 text-sm leading-loose text-gold/70">{{ rule.note }}</p>
+            </div>
           </FadeIn>
         </div>
       </div>
     </section>
 
-    <!-- ===== Experience Section ===== -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-night via-[#1c0033] to-night py-24">
-      <SparkleBackground :count="24" :diamonds="8" :seed="55" />
-      <div class="relative z-10 mx-auto max-w-5xl px-6">
+    <!-- ===== Product Intro ===== -->
+    <section class="px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
         <FadeIn>
-          <div class="text-center">
-            <p class="font-display text-sm italic tracking-[0.4em] text-gold">EXPERIENCE</p>
-            <h2 class="text-holo mt-4 section-title">ここに体験セクションの見出し</h2>
-            <div class="holo-divider" />
-            <p class="mx-auto mt-10 max-w-3xl leading-loose text-white/80 md:text-lg">
-              ここに体験セクションの導入文を入れる。<br class="hidden md:block" />
-              商品がユーザーの行動や気持ちをどう変えるのかを書く。
-            </p>
-          </div>
+          <p class="text-sm tracking-wide text-kira-purple">zubora foam</p>
+          <h2 class="section-title mt-4 font-display">1本で、顔・体・頭皮を洗えます。</h2>
+          <p class="mt-6 max-w-2xl leading-loose text-gold/70">
+            オールインワンの泡状洗浄料です。すごい発明ではないかもしれません。ただ、毎日のことを少し楽にするための工夫は、わりと真剣に詰めました。
+          </p>
         </FadeIn>
-
-        <div class="mt-16 grid gap-8 md:grid-cols-3">
-          <FadeIn v-for="(item, i) in experienceSteps" :key="item.step" :delay="i * 120">
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <FadeIn v-for="(point, i) in productPoints" :key="point.title" :delay="i * 100">
             <div class="glass-card h-full p-8">
-              <p class="text-holo font-display text-4xl font-bold italic">{{ item.step }}</p>
-              <h3 class="mt-4 text-lg font-black tracking-wider text-white">{{ item.title }}</h3>
-              <p class="mt-3 text-sm leading-loose text-white/70">{{ item.description }}</p>
+              <h3 class="text-lg font-semibold tracking-wide">{{ point.title }}</h3>
+              <p class="mt-3 text-sm leading-loose text-gold/70">{{ point.body }}</p>
             </div>
           </FadeIn>
         </div>
+      </div>
+    </section>
 
-        <FadeIn :delay="200">
-          <div class="mt-16 text-center">
-            <p class="text-lg font-black tracking-widest text-white md:text-xl">
-              ここにクロージングのひとことを入れる。
-            </p>
-            <div class="mt-8">
-              <NuxtLink to="/contact/" class="btn-holo hover-sparkle">お問い合わせはこちら</NuxtLink>
+    <!-- ===== For whom / Not for whom ===== -->
+    <section class="bg-night-deep px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
+        <FadeIn>
+          <p class="text-sm tracking-wide text-kira-pink">for you?</p>
+          <h2 class="section-title mt-4 font-display">向いている人と、向かない人。</h2>
+          <p class="mt-6 max-w-2xl leading-loose text-gold/70">
+            正直に書きます。全員に合う、とは言いません。
+          </p>
+        </FadeIn>
+        <div class="mt-12 grid gap-6 md:grid-cols-2">
+          <FadeIn>
+            <div class="glass-card h-full p-8">
+              <h3 class="text-lg font-semibold tracking-wide">こんな人に</h3>
+              <ul class="mt-4 space-y-3 text-sm leading-relaxed text-gold/70">
+                <li v-for="item in goodFor" :key="item" class="flex gap-3">
+                  <span class="mt-0.5 text-kira-pink" aria-hidden="true">○</span>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
             </div>
+          </FadeIn>
+          <FadeIn :delay="100">
+            <div class="glass-card h-full p-8">
+              <h3 class="text-lg font-semibold tracking-wide">こんな人には、たぶん向かない</h3>
+              <ul class="mt-4 space-y-3 text-sm leading-relaxed text-gold/70">
+                <li v-for="item in notFor" :key="item" class="flex gap-3">
+                  <span class="mt-0.5 text-kira-cyan" aria-hidden="true">△</span>
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+              <p class="mt-5 text-xs leading-relaxed text-gold/50">
+                無理にすすめて合わなかったら、お互いに悲しいので。
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Quiet CTA ===== -->
+    <section class="px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
+        <FadeIn>
+          <p class="max-w-2xl font-display text-xl leading-relaxed text-gold/80 md:text-2xl">
+            ズボラで、普通よりいい状態。<br />まあ、一度見てみてください。
+          </p>
+          <div class="mt-10">
+            <NuxtLink to="/products/" class="btn-holo">詳しく見る</NuxtLink>
           </div>
         </FadeIn>
       </div>

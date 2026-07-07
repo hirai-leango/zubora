@@ -3,7 +3,8 @@ import { brand } from '~/brand.config'
 
 useSeo({
   title: `お問い合わせ | ${brand.name}`,
-  description: `${brand.name}へのお問い合わせはこちら。ここにお問い合わせページの説明文（120字前後）を入れる。`,
+  description:
+    'zuboraへのお問い合わせはこちら。商品のこと、使い方のこと、気になることがあればメールでどうぞ。ゆっくりですが、ちゃんと返します。',
   path: '/contact/',
 })
 
@@ -12,27 +13,24 @@ const contactEmail = brand.contactEmail || 'info@example.com'
 </script>
 
 <template>
-  <div class="relative min-h-[70vh] overflow-hidden bg-night py-24">
-    <SparkleBackground :count="30" :diamonds="8" :seed="17" />
-    <div class="relative z-10 mx-auto max-w-3xl px-6 text-center">
+  <div class="min-h-[70vh] bg-night px-5 py-24 md:px-8">
+    <div class="mx-auto max-w-5xl">
       <FadeIn>
-        <p class="font-display text-sm italic tracking-[0.4em] text-kira-cyan">CONTACT</p>
-        <h1 class="text-holo mt-4 section-title">お問い合わせ</h1>
-        <div class="holo-divider" />
-        <p class="mt-10 leading-loose text-white/80 md:text-lg">
-          {{ brand.name }}に関するお問い合わせはこちら。<br class="hidden md:block" />
-          ここに受け付ける相談内容の例（価格・サンプル・導入など）を書く。
+        <p class="text-sm tracking-wide text-kira-pink">contact</p>
+        <h1 class="section-title mt-4 font-display">お問い合わせ</h1>
+        <p class="mt-6 max-w-2xl leading-loose text-gold/70">
+          商品のこと、使い方のこと、「これって自分に合いますか」という相談。なんでもどうぞ。返信は早くないかもしれませんが、ちゃんと読んで、ちゃんと返します。
         </p>
       </FadeIn>
-      <FadeIn :delay="150">
-        <div class="glass-card mx-auto mt-12 max-w-xl p-8 md:p-10">
-          <p class="text-sm tracking-widest text-white/60">メールでのお問い合わせ</p>
-          <p class="mt-3 text-xl font-bold text-gold md:text-2xl">{{ contactEmail }}</p>
-          <p class="mt-6 text-sm leading-relaxed text-white/60">
-            ここに添えてほしい情報（お名前・ご希望内容など）を案内する文章を入れる。
+      <FadeIn :delay="120">
+        <div class="glass-card mt-12 max-w-xl p-8 md:p-10">
+          <p class="text-sm text-gold/60">メールでのお問い合わせ</p>
+          <p class="mt-3 text-xl font-semibold md:text-2xl">{{ contactEmail }}</p>
+          <p class="mt-5 text-sm leading-loose text-gold/60">
+            お名前と、お問い合わせの内容を添えてお送りください。形式は気にしなくて大丈夫です。
           </p>
           <div class="mt-8">
-            <a :href="`mailto:${contactEmail}`" class="btn-holo hover-sparkle">メールを送る</a>
+            <a :href="`mailto:${contactEmail}`" class="btn-holo">メールを送る</a>
           </div>
         </div>
       </FadeIn>

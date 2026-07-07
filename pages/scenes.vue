@@ -2,143 +2,131 @@
 import { brand } from '~/brand.config'
 
 useSeo({
-  title: `活用シーン | ${brand.name}`,
-  description: `${brand.name}の活用シーン・アイデア集。ここにシーン紹介ページの説明文（120字前後）を入れる。`,
+  title: `使い方 | ${brand.name}`,
+  description:
+    'Zubora Foamの使い方はプッシュの回数だけ。1プッシュ＝顔、2プッシュ＝体、3プッシュ＝髪。毎日のお風呂での使い方を、順を追ってご紹介します。',
   path: '/scenes/',
 })
 
-// ここにシーン別の活用アイデアを6つ書く
-const scenes = [
+// 毎日のプッシュルール
+const pushRule = [
   {
-    icon: '🎉',
-    title: 'シーン1の見出し',
-    description:
-      'ここにシーン1の説明を入れる。どんな場面で、商品がどう活きるのかを2〜3文で書く。',
-    glow: 'hover:shadow-glow-pink',
+    count: '1',
+    target: '顔',
+    body: 'ワンプッシュ分の泡を、そのまま顔へ。ごしごしこすらず、泡を転がすくらいで十分です。ぬるま湯で流します。',
   },
   {
-    icon: '💫',
-    title: 'シーン2の見出し',
-    description:
-      'ここにシーン2の説明を入れる。ユーザーの気持ちがどう動くのかを2〜3文で書く。',
-    glow: 'hover:shadow-glow-purple',
+    count: '2',
+    target: '体',
+    body: 'ツープッシュを手に取って、全身へ。泡はよく伸びます。タオルを使うかどうかは、お好みで。私たちは手で済ませる派です。',
   },
   {
-    icon: '🏆',
-    title: 'シーン3の見出し',
-    description:
-      'ここにシーン3の説明を入れる。イベントや記念日など特別な場面での使い方を書く。',
-    glow: 'hover:shadow-glow-gold',
+    count: '3',
+    target: '髪',
+    body: 'スリープッシュを頭皮になじませて、指の腹で洗います。髪が長い日や、汗をかいた日は、もうひと押ししても大丈夫。',
+  },
+]
+
+// 一日の流れ（ゆるく）
+const dailyFlow = [
+  {
+    time: '夜、お風呂で',
+    body: '3→2→1の順（髪→体→顔）で洗うと、流し残しがなくて楽です。順番を忘れても、特に問題はありません。',
   },
   {
-    icon: '📸',
-    title: 'シーン4の見出し',
-    description:
-      'ここにシーン4の説明を入れる。SNS拡散や口コミにつながる使い方を書く。',
-    glow: 'hover:shadow-glow-cyan',
+    time: '朝、シャワーだけの日',
+    body: '顔にワンプッシュ、あとはお湯を浴びるだけ、でも成立します。朝の5分は貴重なので。',
   },
   {
-    icon: '🛋',
-    title: 'シーン5の見出し',
-    description:
-      'ここにシーン5の説明を入れる。日常づかい・常設での活用方法を書く。',
-    glow: 'hover:shadow-glow-gold',
+    time: '出張・ジム・旅行',
+    body: '持っていくのは1本だけ。ポーチの中身を考える時間が、まるごと消えます。',
   },
-  {
-    icon: '🕴',
-    title: 'シーン6の見出し',
-    description:
-      'ここにシーン6の説明を入れる。プレミアムな組み合わせ・上位プランの提案を書く。',
-    glow: 'hover:shadow-glow-purple',
-  },
+]
+
+const tips = [
+  '泡が足りないと感じたら、素直に足してください。プッシュ数は目安です。',
+  'お風呂上がりの保湿は、いつも通りに。zuboraは「洗う」担当です。',
+  'スタイリング剤をしっかり使った日は、先にお湯でよく流すと落ちやすくなります。',
 ]
 </script>
 
 <template>
   <div class="bg-night">
-    <!-- ===== Hero ===== -->
-    <section class="relative flex min-h-[55vh] items-center justify-center overflow-hidden">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,105,180,0.2)_0%,transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(191,95,255,0.15)_0%,transparent_50%)]"
-        aria-hidden="true"
-      />
-      <SparkleBackground :count="30" :diamonds="10" :seed="127" />
-
-      <div class="relative z-10 px-6 py-24 text-center">
-        <p class="font-display text-sm italic tracking-[0.5em] text-gold md:text-base">SCENE IDEAS</p>
-        <h1 class="text-holo mt-6 text-4xl font-black leading-tight tracking-wider md:text-6xl">
-          ここにシーンページの<br class="md:hidden" />キャッチコピー
-        </h1>
-        <div class="holo-divider" />
-        <p class="mt-8 leading-loose text-white/70 md:text-lg">
-          {{ brand.name }}の活用アイデアをご紹介。<br class="hidden md:block" />
-          ここにページの導入文を入れる。
-        </p>
+    <!-- ===== Page Header ===== -->
+    <section class="px-5 pb-16 pt-20 md:px-8 md:pt-28">
+      <div class="mx-auto max-w-5xl">
+        <FadeIn>
+          <p class="text-sm tracking-wide text-kira-pink">how to use</p>
+          <h1 class="section-title mt-4 font-display">使い方は、数えるだけ。</h1>
+          <p class="mt-6 max-w-2xl leading-loose text-gold/70">
+            Zubora Foamの使い方は、プッシュの回数がすべてです。1、2、3。それ以上覚えることは、たぶんありません。
+          </p>
+        </FadeIn>
       </div>
     </section>
 
-    <!-- ===== シーン別活用アイデア ===== -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-night via-night-soft to-night py-24">
-      <SparkleBackground :count="18" :seed="138" />
-      <div class="relative z-10 mx-auto max-w-6xl px-6">
+    <!-- ===== Push Rule ===== -->
+    <section class="bg-night-deep px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
         <FadeIn>
-          <div class="text-center">
-            <p class="font-display text-sm italic tracking-[0.4em] text-kira-pink">IDEAS</p>
-            <h2 class="text-holo mt-4 section-title">シーン別活用アイデア</h2>
-            <div class="holo-divider" />
-          </div>
+          <p class="text-sm tracking-wide text-kira-purple">push rule</p>
+          <h2 class="section-title mt-4 font-display">1・2・3の泡。</h2>
         </FadeIn>
-        <div class="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <FadeIn v-for="(scene, i) in scenes" :key="scene.title" :delay="i * 100">
-            <div class="glass-card h-full p-8" :class="scene.glow">
-              <p class="text-4xl" aria-hidden="true">{{ scene.icon }}</p>
-              <h3 class="mt-5 text-xl font-black tracking-wider text-gold">{{ scene.title }}</h3>
-              <p class="mt-4 text-sm leading-loose text-white/70">{{ scene.description }}</p>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <FadeIn v-for="(rule, i) in pushRule" :key="rule.target" :delay="i * 100">
+            <div class="glass-card h-full p-8">
+              <p class="font-display text-5xl font-semibold text-kira-pink">{{ rule.count }}</p>
+              <p class="mt-2 text-sm tracking-widest text-gold/50">push</p>
+              <h3 class="mt-4 text-xl font-semibold tracking-wide">{{ rule.target }}</h3>
+              <p class="mt-3 text-sm leading-loose text-gold/70">{{ rule.body }}</p>
             </div>
           </FadeIn>
         </div>
       </div>
     </section>
 
-    <!-- ===== 導入のメリット ===== -->
-    <section class="relative overflow-hidden py-24">
-      <SparkleBackground :count="16" :diamonds="6" :seed="149" />
-      <div class="relative z-10 mx-auto max-w-4xl px-6">
+    <!-- ===== Daily Flow ===== -->
+    <section class="px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
         <FadeIn>
-          <div class="text-center">
-            <p class="font-display text-sm italic tracking-[0.4em] text-kira-cyan">MERIT</p>
-            <h2 class="text-holo mt-4 section-title">導入のメリット</h2>
-            <div class="holo-divider" />
-          </div>
+          <p class="text-sm tracking-wide text-kira-purple">daily</p>
+          <h2 class="section-title mt-4 font-display">毎日は、こんな感じ。</h2>
         </FadeIn>
-        <FadeIn :delay="150">
-          <div class="glass-card mt-12 p-8 text-center md:p-12">
-            <p class="text-shimmer text-xl font-black leading-relaxed tracking-wider md:text-2xl">
-              ここにメリットを象徴する<br />キーメッセージを入れる。
-            </p>
-            <p class="mt-8 leading-loose text-white/80">
-              ここにメリットの本文を入れる。<br class="hidden md:block" />
-              導入する側にとっての具体的な効果（売上・集客・満足度など）を、<br class="hidden md:block" />
-              3行程度で説得力をもって書く。
-            </p>
-          </div>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <FadeIn v-for="(flow, i) in dailyFlow" :key="flow.time" :delay="i * 100">
+            <div class="glass-card h-full p-8">
+              <h3 class="text-lg font-semibold tracking-wide">{{ flow.time }}</h3>
+              <p class="mt-3 text-sm leading-loose text-gold/70">{{ flow.body }}</p>
+            </div>
+          </FadeIn>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Tips ===== -->
+    <section class="bg-night-deep px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
+        <FadeIn>
+          <h2 class="text-xl font-semibold tracking-wide">ちいさな補足</h2>
+          <ul class="mt-6 max-w-2xl space-y-3 text-sm leading-loose text-gold/70">
+            <li v-for="tip in tips" :key="tip" class="flex gap-3">
+              <span class="mt-0.5 text-kira-pink" aria-hidden="true">・</span>
+              <span>{{ tip }}</span>
+            </li>
+          </ul>
         </FadeIn>
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-night to-night-deep py-24">
-      <SparkleBackground :count="24" :diamonds="8" :seed="160" />
-      <div class="relative z-10 mx-auto max-w-3xl px-6 text-center">
+    <!-- ===== Quiet CTA ===== -->
+    <section class="px-5 py-20 md:px-8">
+      <div class="mx-auto max-w-5xl">
         <FadeIn>
-          <h2 class="text-holo section-title">ここにCTAの見出し</h2>
-          <div class="holo-divider" />
-          <p class="mt-8 leading-loose text-white/80 md:text-lg">
-            ここにCTAの本文を入れる。<br class="hidden md:block" />
-            お気軽にお問い合わせください。
+          <p class="font-display text-xl leading-relaxed text-gold/80">
+            覚えました？ たぶん、もう大丈夫です。
           </p>
-          <div class="mt-10">
-            <NuxtLink to="/contact/" class="btn-holo hover-sparkle">お問い合わせはこちら</NuxtLink>
+          <div class="mt-8">
+            <NuxtLink to="/products/" class="btn-holo">商品を見る</NuxtLink>
           </div>
         </FadeIn>
       </div>

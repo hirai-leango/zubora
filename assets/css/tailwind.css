@@ -7,112 +7,92 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-night text-white font-sans antialiased;
+    @apply bg-night font-sans text-gold antialiased;
   }
   ::selection {
-    @apply bg-kira-pink/60 text-white;
+    @apply bg-kira-pink/30 text-gold-dark;
   }
 }
 
 @layer components {
-  /* ホログラム調グラデーションのCTAボタン */
+  /* 主役CTAボタン（旧 btn-holo）：インク色のやわらかい丸ボタン */
   .btn-holo {
-    @apply relative inline-block rounded-full px-10 py-4 text-lg font-black tracking-widest text-white transition-transform duration-300;
-    background: linear-gradient(135deg, #ff69b4, #bf5fff, #00ffff, #ffd700);
-    background-size: 300% 300%;
-    animation: holo-shift 6s ease infinite;
-    box-shadow:
-      0 0 24px rgba(255, 105, 180, 0.5),
-      0 0 48px rgba(191, 95, 255, 0.3);
+    @apply inline-block rounded-full bg-gold px-9 py-3.5 text-base font-medium tracking-wide text-night transition-all duration-300;
+    box-shadow: 0 6px 20px rgba(43, 41, 38, 0.14);
   }
   .btn-holo:hover {
-    transform: scale(1.06);
-    box-shadow:
-      0 0 32px rgba(255, 215, 0, 0.7),
-      0 0 64px rgba(255, 105, 180, 0.5);
+    @apply bg-gold-light;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(43, 41, 38, 0.16);
   }
 
-  /* 縁取りだけホロなセカンダリボタン */
+  /* 縁取りだけのセカンダリボタン */
   .btn-outline-holo {
-    @apply inline-block rounded-full border-2 border-kira-pink px-8 py-3 font-bold tracking-widest text-kira-pink transition-all duration-300 hover:bg-kira-pink hover:text-night hover:shadow-glow-pink;
+    @apply inline-block rounded-full border border-gold/30 bg-paper/60 px-8 py-3 font-medium tracking-wide text-gold transition-all duration-300 hover:border-gold/60 hover:bg-paper;
   }
 
-  /* グラスモーフィズムカード */
+  /* カード（旧グラスカード）：白い面にごく薄い縁と影 */
   .glass-card {
-    @apply rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md transition-all duration-300;
+    @apply rounded-soft border border-gold/10 bg-paper shadow-soft transition-all duration-300;
   }
   .glass-card:hover {
-    @apply border-gold/60;
-    box-shadow:
-      0 0 30px rgba(255, 215, 0, 0.25),
-      0 0 60px rgba(255, 105, 180, 0.15);
-    transform: translateY(-6px);
+    @apply border-gold/20;
+    box-shadow: 0 10px 30px rgba(43, 41, 38, 0.09);
+    transform: translateY(-2px);
   }
 
-  /* 見出し：レインボー／ホログラデーション文字 */
+  /* 見出し（旧ホロ文字）：明朝のインク文字として読み替える */
   .text-holo {
-    background: linear-gradient(135deg, #ff69b4, #bf5fff, #00ffff, #ffd700, #ff69b4);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: holo-shift 6s ease infinite;
+    @apply font-display font-semibold text-gold;
   }
 
-  /* ゴールドシマー文字 */
+  /* 旧シマー文字：少しやわらかいインク */
   .text-shimmer {
-    background: linear-gradient(100deg, #ffd700 20%, #fff8dc 40%, #ffffff 50%, #fff8dc 60%, #ffd700 80%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    animation: shimmer 4s linear infinite;
+    @apply font-display font-semibold text-gold-light;
   }
 
   .section-title {
-    @apply text-3xl font-black tracking-wider md:text-5xl;
+    @apply text-2xl font-semibold leading-snug tracking-wide md:text-4xl;
   }
 
+  /* 区切り線：セージの短い線（左寄せ基調だが中央でも使える） */
   .holo-divider {
-    @apply mx-auto mt-6 h-1 w-28 rounded-full;
-    background: linear-gradient(90deg, #ff69b4, #bf5fff, #00ffff, #ffd700);
+    @apply mx-auto mt-6 h-px w-16 rounded-full bg-kira-pink/70;
   }
 
   /* ブログ記事本文の共通スタイル */
   .article-body h2 {
-    @apply mt-14 border-l-4 border-gold pl-4 text-2xl font-black tracking-wider text-gold;
+    @apply mt-14 border-l-2 border-kira-pink pl-4 text-2xl font-semibold tracking-wide text-gold;
   }
   .article-body h3 {
-    @apply mt-10 text-xl font-bold tracking-wider text-gold-light;
+    @apply mt-10 text-xl font-semibold tracking-wide text-gold-light;
   }
   .article-body p {
-    @apply mt-6 leading-loose text-white/80;
+    @apply mt-6 leading-loose text-gold/80;
   }
   .article-body ul {
-    @apply mt-6 list-disc space-y-2 pl-6 leading-loose text-white/80 marker:text-gold;
+    @apply mt-6 list-disc space-y-2 pl-6 leading-loose text-gold/80 marker:text-kira-pink;
   }
   .article-body ol {
-    @apply mt-6 list-decimal space-y-2 pl-6 leading-loose text-white/80 marker:font-bold marker:text-gold;
+    @apply mt-6 list-decimal space-y-2 pl-6 leading-loose text-gold/80 marker:font-medium marker:text-kira-pink;
   }
   .article-body strong {
     @apply font-bold text-gold;
   }
   .article-body a {
-    @apply text-kira-cyan underline-offset-4 hover:underline;
+    @apply text-kira-purple underline-offset-4 hover:underline;
   }
   .article-body blockquote {
-    @apply mt-6 rounded-r-xl border-l-4 border-gold bg-white/5 px-5 py-4 leading-loose text-white/70;
+    @apply mt-6 rounded-r-xl border-l-2 border-kira-pink bg-night-deep px-5 py-4 leading-loose text-gold/70;
   }
   .article-body table {
     @apply mt-6 w-full border-collapse text-sm leading-relaxed;
   }
   .article-body th {
-    @apply border border-white/20 bg-gold/15 px-3 py-2.5 text-left font-bold text-gold;
+    @apply border border-gold/15 bg-night-deep px-3 py-2.5 text-left font-semibold text-gold;
   }
   .article-body td {
-    @apply border border-white/15 px-3 py-2.5 align-top text-white/80;
+    @apply border border-gold/10 bg-paper px-3 py-2.5 align-top text-gold/80;
   }
   .article-body .table-scroll {
     @apply mt-6 overflow-x-auto;
@@ -122,140 +102,32 @@
   }
 }
 
-/* ===== キラキラ (sparkle) パーツ ===== */
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-@keyframes holo-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes sparkle {
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0) rotate(0deg);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1) rotate(180deg);
-  }
-}
-
-@keyframes fall-down {
-  0% {
-    transform: translateY(-10vh) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(105vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-@keyframes twinkle {
-  0%,
-  100% {
-    opacity: 0.2;
-    transform: scale(0.6);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* 4方向スターのキラキラ粒 */
-.sparkle {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  pointer-events: none;
-  clip-path: polygon(50% 0%, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0% 50%, 39% 39%);
-  animation: sparkle 2.6s ease-in-out infinite;
-}
-
-/* ダイヤモンド粒（落下用） */
+/* 旧テンプレのキラキラ粒クラス。互換のため残すが、何も描画しない */
+.sparkle,
 .diamond {
-  position: absolute;
-  pointer-events: none;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  animation: fall-down 9s linear infinite;
+  display: none;
 }
 
-/* スクロール連動フェードイン */
+/* 旧ホバースパークル。互換のため残すが、装飾はなし */
+.hover-sparkle {
+  position: relative;
+}
+
+/* スクロール連動フェードイン（短く・控えめに） */
 .fade-in-up {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(10px);
   transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+    opacity 0.45s ease,
+    transform 0.45s ease;
 }
 .fade-in-up.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ボタン・カードのホバー時スパークル */
-.hover-sparkle {
-  position: relative;
-}
-.hover-sparkle::before,
-.hover-sparkle::after {
-  content: '✦';
-  position: absolute;
-  font-size: 1rem;
-  color: #ffd700;
-  opacity: 0;
-  transition: all 0.35s ease;
-  pointer-events: none;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
-}
-.hover-sparkle::before {
-  top: -0.4rem;
-  left: -0.4rem;
-}
-.hover-sparkle::after {
-  bottom: -0.4rem;
-  right: -0.4rem;
-}
-.hover-sparkle:hover::before {
-  opacity: 1;
-  transform: translate(-4px, -4px) scale(1.3) rotate(-20deg);
-}
-.hover-sparkle:hover::after {
-  opacity: 1;
-  transform: translate(4px, 4px) scale(1.3) rotate(20deg);
-}
-
 /* prefers-reduced-motion 対応 */
 @media (prefers-reduced-motion: reduce) {
-  .sparkle,
-  .diamond,
-  .btn-holo,
-  .text-holo,
-  .text-shimmer {
-    animation: none !important;
-  }
   .fade-in-up {
     opacity: 1;
     transform: none;

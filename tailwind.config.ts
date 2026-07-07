@@ -15,17 +15,20 @@ export default {
   theme: {
     extend: {
       colors: {
+        // 明るいテーマでは「white系クラス＝本文インク色」に読み替える。
+        // 既存記事の text-white/80 などがそのまま読める文字色になる。
+        white: palette.text,
         // 背景系（night = palette.bg / bgDeep）
         night: {
           DEFAULT: palette.bg,
           deep: palette.bgDeep,
-          soft: '#1a0b38',
+          soft: '#EFEBE1',
         },
         // 主役アクセント（gold = palette.accent1）
         gold: {
           DEFAULT: palette.accent1,
-          light: '#FFE55C',
-          dark: '#C9A800',
+          light: '#5C574F',
+          dark: '#171614',
         },
         // サブアクセント（kira = palette.accent2〜4）
         kira: {
@@ -33,63 +36,32 @@ export default {
           purple: palette.accent3,
           cyan: palette.accent4,
         },
+        // カードなど「本当に白い面」用
+        paper: '#FBFAF7',
       },
       fontFamily: {
         sans: [...brand.fonts.sans],
         display: [...brand.fonts.display],
       },
-      backgroundImage: {
-        'holo-gradient': `linear-gradient(135deg, ${palette.accent2}, ${palette.accent3}, ${palette.accent4}, ${palette.accent1})`,
-        'holo-gradient-soft':
-          'linear-gradient(135deg, rgba(255,105,180,0.15), rgba(191,95,255,0.15), rgba(0,255,255,0.15), rgba(255,215,0,0.15))',
+      borderRadius: {
+        soft: '1.25rem',
       },
       animation: {
-        shimmer: 'shimmer 4s linear infinite',
-        sparkle: 'sparkle 2.4s ease-in-out infinite',
-        'float-up': 'float-up 8s linear infinite',
-        'fall-down': 'fall-down 9s linear infinite',
-        'float-slow': 'float-slow 5s ease-in-out infinite',
-        'holo-shift': 'holo-shift 6s ease infinite',
-        twinkle: 'twinkle 3s ease-in-out infinite',
+        'float-slow': 'float-slow 6s ease-in-out infinite',
       },
       keyframes: {
-        shimmer: {
-          '0%': { backgroundPosition: '-200% center' },
-          '100%': { backgroundPosition: '200% center' },
-        },
-        sparkle: {
-          '0%, 100%': { opacity: '0', transform: 'scale(0)' },
-          '50%': { opacity: '1', transform: 'scale(1)' },
-        },
-        'float-up': {
-          '0%': { transform: 'translateY(0) rotate(0deg)', opacity: '0' },
-          '10%': { opacity: '1' },
-          '100%': { transform: 'translateY(-100vh) rotate(360deg)', opacity: '0' },
-        },
-        'fall-down': {
-          '0%': { transform: 'translateY(-10vh) rotate(0deg)', opacity: '0' },
-          '10%': { opacity: '1' },
-          '90%': { opacity: '1' },
-          '100%': { transform: 'translateY(105vh) rotate(360deg)', opacity: '0' },
-        },
         'float-slow': {
           '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-12px)' },
-        },
-        'holo-shift': {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
-        twinkle: {
-          '0%, 100%': { opacity: '0.2', transform: 'scale(0.6)' },
-          '50%': { opacity: '1', transform: 'scale(1)' },
+          '50%': { transform: 'translateY(-8px)' },
         },
       },
       boxShadow: {
-        'glow-gold': '0 0 30px rgba(255, 215, 0, 0.45)',
-        'glow-pink': '0 0 30px rgba(255, 105, 180, 0.45)',
-        'glow-cyan': '0 0 30px rgba(0, 255, 255, 0.35)',
-        'glow-purple': '0 0 30px rgba(191, 95, 255, 0.45)',
+        // 旧テーマの glow 系キーは「やわらかい影」に読み替えて維持する
+        'glow-gold': '0 10px 30px rgba(43, 41, 38, 0.08)',
+        'glow-pink': '0 10px 30px rgba(138, 154, 130, 0.18)',
+        'glow-cyan': '0 10px 30px rgba(184, 174, 156, 0.20)',
+        'glow-purple': '0 10px 30px rgba(154, 170, 180, 0.20)',
+        soft: '0 6px 24px rgba(43, 41, 38, 0.06)',
       },
     },
   },

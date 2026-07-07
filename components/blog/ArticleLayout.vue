@@ -198,16 +198,13 @@ const scrollToHeading = (id: string) => {
           </div>
 
           <!-- Mid-article CTA -->
-          <div class="mid-cta relative mt-14 overflow-hidden rounded-3xl border border-gold/40 bg-gradient-to-br from-night-soft to-night p-8 text-center">
-            <SparkleBackground :count="10" :seed="41" />
-            <div class="relative z-10">
-              <p class="text-lg font-black tracking-wider text-white">
-                {{ SITE_NAME }}についてのお問い合わせはこちら
-              </p>
-              <NuxtLink to="/contact/" class="btn-holo hover-sparkle mt-6 !px-8 !py-3 !text-base">
-                お問い合わせする
-              </NuxtLink>
-            </div>
+          <div class="mid-cta mt-14 rounded-soft border border-gold/10 bg-night-deep p-8">
+            <p class="text-lg font-semibold tracking-wide text-gold">
+              全身これ1本の泡、{{ SITE_NAME }} foam
+            </p>
+            <NuxtLink to="/products/" class="btn-holo mt-6 !px-8 !py-3 !text-base">
+              商品を見る
+            </NuxtLink>
           </div>
 
           <!-- FAQ Section -->
@@ -246,36 +243,33 @@ const scrollToHeading = (id: string) => {
           <!-- Author Box -->
           <div class="author-box glass-card mt-14 flex items-center gap-5 p-6">
             <div
-              class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-holo-gradient text-2xl"
+              class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-kira-pink/25 text-2xl"
               aria-hidden="true"
             >
-              ✦
+              🫧
             </div>
             <div>
               <h3 class="text-sm font-black tracking-wider text-gold">監修・執筆</h3>
               <p class="mt-1 text-sm leading-relaxed text-white/70">
                 {{ SITE_NAME }}編集部 |
-                ここに編集部・メディアの紹介文を入れる。どんなテーマを、どんな読者に向けて発信しているかを書く。
+                洗うことと、暮らしを軽くすることについて書いています。がんばらない人の味方です。
               </p>
             </div>
           </div>
 
           <!-- End CTA -->
-          <div class="end-cta relative mt-10 overflow-hidden rounded-3xl border border-gold/40 bg-gradient-to-br from-night via-night-soft to-night p-10 text-center">
-            <SparkleBackground :count="14" :diamonds="4" :seed="73" />
-            <div class="relative z-10">
-              <p class="text-shimmer text-xl font-black tracking-widest">{{ SITE_NAME }}</p>
-              <p class="mt-4 text-lg font-bold leading-relaxed text-white">
-                {{ SITE_NAME }}にご興味のある方はこちら
-              </p>
-              <p class="mt-3 text-sm leading-loose text-white/70">
-                ここに記事末尾CTAの説明文を入れる。商品・サービスの魅力をひとことで伝える。<br class="hidden md:block" />
-                ご相談・お見積りはお気軽にどうぞ。
-              </p>
-              <NuxtLink to="/contact/" class="btn-holo hover-sparkle mt-8">
-                導入のご相談はこちら
-              </NuxtLink>
-            </div>
+          <div class="end-cta mt-10 rounded-soft border border-kira-pink/40 bg-kira-pink/10 p-10">
+            <p class="font-display text-xl font-semibold lowercase tracking-wide text-gold">{{ SITE_NAME }}</p>
+            <p class="mt-4 text-lg font-semibold leading-relaxed text-gold">
+              ズボラで、普通よりいい状態。
+            </p>
+            <p class="mt-3 text-sm leading-loose text-gold/70">
+              顔・体・頭皮を1本で洗えるオールインワンの泡。<br class="hidden md:block" />
+              気になったら、まあ、のぞいてみてください。
+            </p>
+            <NuxtLink to="/products/" class="btn-holo mt-8">
+              商品を見る
+            </NuxtLink>
           </div>
         </main>
 

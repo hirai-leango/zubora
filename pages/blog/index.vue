@@ -2,8 +2,8 @@
 import { brand } from '~/brand.config'
 
 useSeo({
-  title: `ブログ | ${brand.name}`,
-  description: `${brand.name}のブログ一覧。ここにブログメディアの説明文（120字前後）を入れる。どんなテーマの記事を、誰に向けて届けるのかを書く。`,
+  title: `ジャーナル | ${brand.name}`,
+  description: `${brand.name}のジャーナル。オールインワン洗浄やアミノ酸系洗浄成分の基礎知識から、時短ケア・ミニマルな暮らしのヒントまで、ゆるく真面目に書いています。`,
   path: '/blog/',
 })
 
@@ -24,25 +24,19 @@ const filtered = computed(() =>
 <template>
   <div class="bg-night">
     <!-- Page Header -->
-    <section class="relative overflow-hidden py-20 text-center">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(191,95,255,0.2)_0%,transparent_55%)]"
-        aria-hidden="true"
-      />
-      <SparkleBackground :count="20" :diamonds="6" :seed="37" />
-      <div class="relative z-10 px-6">
-        <p class="font-display text-sm italic tracking-[0.5em] text-kira-cyan">BLOG</p>
-        <h1 class="text-holo mt-4 section-title">ブログ</h1>
-        <div class="holo-divider" />
-        <p class="mt-8 leading-loose text-white/80">
-          ここにブログ一覧ページの導入文を入れる。扱うテーマの範囲をひとことで。
+    <section class="px-5 pb-12 pt-20 md:px-8 md:pt-28">
+      <div class="mx-auto max-w-5xl">
+        <p class="text-sm tracking-wide text-kira-pink">journal</p>
+        <h1 class="section-title mt-4 font-display">ジャーナル</h1>
+        <p class="mt-6 max-w-2xl leading-loose text-gold/70">
+          洗うことと、暮らしを軽くすることについて。ゆるく、でもわりと真面目に書いています。
         </p>
       </div>
     </section>
 
     <!-- Category Filter -->
     <nav class="mx-auto max-w-5xl px-6" aria-label="カテゴリー絞り込み">
-      <div class="flex flex-wrap items-center justify-center gap-3">
+      <div class="flex flex-wrap items-center gap-3">
         <NuxtLink
           to="/blog/"
           class="rounded-full border px-4 py-1.5 text-xs font-bold tracking-widest transition-colors"

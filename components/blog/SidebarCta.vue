@@ -3,24 +3,19 @@ import { brand } from '~/brand.config'
 </script>
 
 <template>
-  <div
-    class="relative overflow-hidden rounded-3xl border border-gold/60 p-6 text-center"
-    style="background: linear-gradient(135deg, #ffd700, #c9a800, #8a7200)"
-  >
-    <div class="relative z-10">
-      <p class="text-3xl" aria-hidden="true">✨</p>
-      <p class="mt-2 text-base font-black leading-snug tracking-wider text-night">
-        {{ brand.name }}を<br />試してみませんか？
-      </p>
-      <p class="mt-3 text-xs leading-relaxed text-night/80">
-        ここにサイドバーCTAの説明文を入れる。商品・サービスの価値をひとことで伝える。
-      </p>
-      <NuxtLink
-        to="/contact/"
-        class="hover-sparkle mt-5 inline-block rounded-full bg-night px-8 py-3 text-sm font-black tracking-widest text-gold transition-transform hover:scale-105"
-      >
-        お問い合わせ
-      </NuxtLink>
-    </div>
+  <div class="rounded-soft border border-kira-pink/40 bg-kira-pink/15 p-6">
+    <p class="text-2xl" aria-hidden="true">🫧</p>
+    <p class="mt-2 text-base font-semibold leading-snug tracking-wide text-gold">
+      {{ brand.name }}、<br />試してみます？
+    </p>
+    <p class="mt-3 text-xs leading-relaxed text-gold/70">
+      顔・体・頭皮を1本で洗える泡。プッシュの回数だけ覚えれば、あとはいつも通りです。
+    </p>
+    <NuxtLink
+      to="/products/"
+      class="mt-5 inline-block rounded-full bg-gold px-7 py-2.5 text-sm font-medium tracking-wide text-night transition-transform hover:-translate-y-0.5"
+    >
+      商品を見る
+    </NuxtLink>
   </div>
 </template>

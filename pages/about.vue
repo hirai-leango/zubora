@@ -2,153 +2,95 @@
 import { brand } from '~/brand.config'
 
 useSeo({
-  title: `ブランドストーリー | ${brand.name}`,
-  description: `${brand.name}のブランドストーリー。ここにブランドが生まれた理由とビジョンの要約（120字前後）を入れる。`,
+  title: `zuboraについて | ${brand.name}`,
+  description:
+    'zuboraが生まれた話。子どもは1本の泡で全身を洗っているのに、大人は3本使っている。その疑問から始まった、知的な引き算のブランドです。',
   path: '/about/',
 })
 
-// ここにブランドを象徴する数字を4つ書く
-const stats = [
-  { icon: '✨', value: '数字1', label: 'ここに数字1の説明を入れる' },
-  { icon: '💫', value: '数字2', label: 'ここに数字2の説明を入れる' },
-  { icon: '🎁', value: '数字3', label: 'ここに数字3の説明を入れる' },
-  { icon: '⭐', value: '数字4', label: 'ここに数字4の説明を入れる' },
+const beliefs = [
+  {
+    title: '引き算は、知的な作業だと思う',
+    body: '増やすのは簡単です。減らすには、何が本当に必要かを考えないといけない。zuboraの「ズボラ」は、怠慢ではなくて、考えた結果の引き算のつもりです。',
+  },
+  {
+    title: 'がんばりに頼る仕組みは、続かない',
+    body: '「毎日ちゃんとやるぞ」という決意は、だいたい3日で切れます。決意がいらないくらい簡単なら、続く。私たちは意志の力を信用していません。自分たちのことなので。',
+  },
+  {
+    title: '正直に売る',
+    body: '向かない人には向かない、と書きます。1本にまとめたことで得るものと、割り切ったものがあります。そこを曖昧にして売っても、長い付き合いにはならないので。',
+  },
 ]
 </script>
 
 <template>
   <div class="bg-night">
     <!-- ===== Hero ===== -->
-    <section class="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(191,95,255,0.22)_0%,transparent_55%),radial-gradient(ellipse_at_bottom_left,rgba(255,105,180,0.14)_0%,transparent_50%),radial-gradient(ellipse_at_bottom_right,rgba(0,255,255,0.12)_0%,transparent_50%)]"
-        aria-hidden="true"
-      />
-      <SparkleBackground :count="32" :diamonds="12" :seed="61" />
-
-      <div class="relative z-10 px-6 py-24 text-center">
-        <p class="font-display text-sm italic tracking-[0.5em] text-gold md:text-base">BRAND STORY</p>
-        <h1 class="text-holo mt-6 text-4xl font-black leading-tight tracking-wider md:text-6xl">
-          ここにブランドの<br class="md:hidden" />ビジョンを一文で。
-        </h1>
-        <div class="holo-divider" />
-        <p class="mt-8 leading-loose text-white/70 md:text-lg">
-          ここにヒーローの補足文を入れる。<br class="md:hidden" />ブランドの原点をひとことで。<br />
-          それが、{{ brand.name }}の始まりです。
-        </p>
+    <section class="px-5 pb-16 pt-20 md:px-8 md:pt-28">
+      <div class="mx-auto max-w-5xl">
+        <FadeIn>
+          <p class="text-sm tracking-wide text-kira-pink">about</p>
+          <h1 class="section-title mt-4 font-display">
+            子どもは1本で洗っていた。<br />大人は、3本使っていた。
+          </h1>
+        </FadeIn>
       </div>
     </section>
 
-    <!-- ===== 誕生のストーリー ===== -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-night via-night-soft to-night py-24">
-      <SparkleBackground :count="16" :seed="72" />
-      <div class="relative z-10 mx-auto max-w-4xl px-6">
-        <FadeIn>
-          <div class="text-center">
-            <p class="font-display text-sm italic tracking-[0.4em] text-kira-pink">ORIGIN</p>
-            <h2 class="text-holo mt-4 section-title">誕生のストーリー</h2>
-            <div class="holo-divider" />
-          </div>
-        </FadeIn>
-        <FadeIn :delay="150">
-          <div class="glass-card mt-12 p-8 md:p-12">
-            <p class="leading-loose text-white/80 md:text-lg">
-              ここに誕生ストーリーの導入文を入れる。きっかけとなった出来事や光景を描写する。
+    <!-- ===== Origin Story ===== -->
+    <section class="px-5 pb-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
+        <FadeIn :delay="100">
+          <div class="max-w-2xl space-y-6 leading-loose text-gold/80">
+            <p>
+              ある晩、子どもをお風呂に入れていて、気づいてしまいました。この子は、ベビー用の泡ソープ1本で頭からつま先まで洗っている。そして機嫌よく寝て、翌朝もすべすべしている。
             </p>
-            <p class="mt-6 leading-loose text-white/80 md:text-lg">
-              ここに課題の描写を入れる。創業者が感じた「もったいない」「変えたい」という気づきを、具体的なシーンとして書く。
+            <p>
+              一方の私は、シャンプーとコンディショナーと洗顔料とボディソープを使い分けて、詰め替えの在庫を切らし、風呂場の棚でボトルを倒し、たまに妻のシャンプーを勝手に使って怒られていました。
             </p>
-            <p class="mt-6 leading-loose text-white/80 md:text-lg">
-              ——そこから生まれた想いを、<strong class="font-bold text-gold">ここに強調して書く。</strong>
+            <p>
+              あれ、と思いました。<strong class="font-semibold">本当に、分ける必要あるんだっけ。</strong>
             </p>
-            <p class="mt-6 leading-loose text-white/80 md:text-lg">
-              その想いから、{{ brand.name }}は生まれました。
+            <p>
+              調べてみると、「大人だから3本必要」という決まりは、どこにもありませんでした。あるのは習慣と、売り場の棚割りだけ。それなら、大人がちゃんと使える品質で1本にまとめたら、毎日が少し軽くなるんじゃないか。
+            </p>
+            <p>
+              そうして生まれたのが、zuboraです。ブランド名に自分の性格をそのまま付けるのはどうかと思いましたが、まあ、事実なので。
             </p>
           </div>
         </FadeIn>
       </div>
     </section>
 
-    <!-- ===== アイデンティティ ===== -->
-    <section class="relative overflow-hidden py-24">
-      <SparkleBackground :count="16" :diamonds="6" :seed="83" />
-      <div class="relative z-10 mx-auto max-w-4xl px-6">
+    <!-- ===== Beliefs ===== -->
+    <section class="bg-night-deep px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
         <FadeIn>
-          <div class="text-center">
-            <p class="font-display text-sm italic tracking-[0.4em] text-kira-cyan">IDENTITY</p>
-            <h2 class="text-holo mt-4 section-title">ここにアイデンティティの見出し</h2>
-            <div class="holo-divider" />
-          </div>
+          <p class="text-sm tracking-wide text-kira-purple">beliefs</p>
+          <h2 class="section-title mt-4 font-display">私たちが考えていること。</h2>
         </FadeIn>
-        <FadeIn :delay="150">
-          <p class="mx-auto mt-10 max-w-3xl text-center leading-loose text-white/80 md:text-lg">
-            ここにブランドの象徴（トレードマーク）の説明を入れる。<br class="hidden md:block" />
-            {{ brand.name }}を一目で identify させる要素を<strong class="font-bold text-gold">強調</strong>して書く。
-          </p>
-          <p class="mx-auto mt-6 max-w-3xl text-center leading-loose text-white/80 md:text-lg">
-            ここに補足の段落を入れる。<br class="hidden md:block" />
-            その象徴がユーザー体験の中でどう機能するかを書く。
-          </p>
-        </FadeIn>
-      </div>
-    </section>
-
-    <!-- ===== ビジョン ===== -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-night via-night-soft to-night py-24">
-      <SparkleBackground :count="20" :seed="94" />
-      <div class="relative z-10 mx-auto max-w-4xl px-6">
-        <FadeIn>
-          <div class="text-center">
-            <p class="font-display text-sm italic tracking-[0.4em] text-gold">VISION</p>
-            <h2 class="text-holo mt-4 section-title">ここにビジョンの見出し</h2>
-            <div class="holo-divider" />
-            <p class="mx-auto mt-10 max-w-3xl leading-loose text-white/80 md:text-lg">
-              ここにビジョンの本文を入れる。<br class="hidden md:block" />
-              ブランドが目指す未来の情景を描写し、<br class="hidden md:block" />
-              読み手が共感できるゴールを3行程度で書く。
-            </p>
-          </div>
-        </FadeIn>
-      </div>
-    </section>
-
-    <!-- ===== 数字で見るブランド ===== -->
-    <section class="relative overflow-hidden py-24">
-      <SparkleBackground :count="14" :seed="105" />
-      <div class="relative z-10 mx-auto max-w-5xl px-6">
-        <FadeIn>
-          <div class="text-center">
-            <p class="font-display text-sm italic tracking-[0.4em] text-kira-purple">BY THE NUMBERS</p>
-            <h2 class="text-holo mt-4 section-title">数字で見る{{ brand.name }}</h2>
-            <div class="holo-divider" />
-          </div>
-        </FadeIn>
-        <FadeIn :delay="150">
-          <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div v-for="stat in stats" :key="stat.label" class="glass-card p-8 text-center">
-              <p class="text-3xl" aria-hidden="true">{{ stat.icon }}</p>
-              <p class="text-shimmer mt-4 text-4xl font-black tracking-wider">{{ stat.value }}</p>
-              <p class="mt-3 text-sm leading-relaxed text-white/70">{{ stat.label }}</p>
+        <div class="mt-12 grid gap-6 md:grid-cols-3">
+          <FadeIn v-for="(belief, i) in beliefs" :key="belief.title" :delay="i * 100">
+            <div class="glass-card h-full p-8">
+              <h3 class="text-lg font-semibold leading-snug tracking-wide">{{ belief.title }}</h3>
+              <p class="mt-3 text-sm leading-loose text-gold/70">{{ belief.body }}</p>
             </div>
-          </div>
-          <p class="mt-6 text-center text-xs text-white/40">※ここに注記を入れる（必要な場合）。</p>
-        </FadeIn>
+          </FadeIn>
+        </div>
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
-    <section class="relative overflow-hidden bg-gradient-to-b from-night to-night-deep py-24">
-      <SparkleBackground :count="24" :diamonds="8" :seed="116" />
-      <div class="relative z-10 mx-auto max-w-3xl px-6 text-center">
+    <!-- ===== Closing ===== -->
+    <section class="px-5 py-24 md:px-8">
+      <div class="mx-auto max-w-5xl">
         <FadeIn>
-          <h2 class="text-holo section-title">ここにCTAの見出し</h2>
-          <div class="holo-divider" />
-          <p class="mt-8 leading-loose text-white/80 md:text-lg">
-            ここにCTAの本文を入れる。<br class="hidden md:block" />
-            誰に向けて、何を提供できるのかを書く。
+          <p class="max-w-2xl font-display text-xl leading-relaxed text-gold/80 md:text-2xl">
+            ズボラで、普通よりいい状態。<br />
+            それが、zuboraの目指すところです。
           </p>
           <div class="mt-10">
-            <NuxtLink to="/contact/" class="btn-holo hover-sparkle">お問い合わせはこちら</NuxtLink>
+            <NuxtLink to="/products/" class="btn-holo">商品を見る</NuxtLink>
           </div>
         </FadeIn>
       </div>

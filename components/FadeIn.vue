@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// スクロールで画面に入ったらフェードインさせるラッパー
+// スクロールで画面に入ったら、短くさりげなくフェードインさせるラッパー
 const props = withDefaults(defineProps<{ delay?: number }>(), { delay: 0 })
 
 const target = ref<HTMLElement | null>(null)
