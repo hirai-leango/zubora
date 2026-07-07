@@ -7,7 +7,7 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-night font-sans text-gold antialiased;
+    @apply bg-night font-sans font-light text-gold antialiased;
   }
   ::selection {
     @apply bg-kira-pink/30 text-gold-dark;
@@ -15,57 +15,96 @@
 }
 
 @layer components {
-  /* 主役CTAボタン（旧 btn-holo）：インク色のやわらかい丸ボタン */
+  /* トラッキングを効かせた極小の英字ラベル（scene / product / family など） */
+  .eyebrow {
+    @apply block font-sans text-[10px] font-normal uppercase tracking-[0.35em] text-gold/45;
+  }
+
+  /* 通し番号（01 / 02 / 03）— 誌面のインデックス */
+  .index-num {
+    @apply font-display text-xs tracking-[0.3em] text-gold/35;
+  }
+
+  /* 細いヘアライン罫 */
+  .hairline {
+    @apply h-px w-full bg-gold/15;
+  }
+
+  /* 写真キャプション：極小・トラッキング広め */
+  .caption {
+    @apply mt-3 block text-[10px] tracking-[0.25em] text-gold/40;
+  }
+
+  /* フィルム写真ふうのプレースホルダー面：やわらかく、少しくすんだ暖色 */
+  .film-frame {
+    @apply relative overflow-hidden rounded-[2px] border border-gold/10;
+    background: linear-gradient(165deg, #efeadf 0%, #e7e0d1 42%, #ddd5c3 78%, #d8cfbc 100%);
+    box-shadow: inset 0 0 60px rgba(43, 41, 38, 0.05);
+  }
+
+  /* 主役CTA（旧 btn-holo）：ボタンではなく、細い下線のテキストリンク */
   .btn-holo {
-    @apply inline-block rounded-full bg-gold px-9 py-3.5 text-base font-medium tracking-wide text-night transition-all duration-300;
-    box-shadow: 0 6px 20px rgba(43, 41, 38, 0.14);
+    @apply inline-block cursor-pointer border-0 bg-transparent pb-1.5 text-sm font-normal tracking-[0.18em] text-gold;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 1px;
+    transition: opacity 0.3s ease, background-size 0.4s ease;
   }
   .btn-holo:hover {
-    @apply bg-gold-light;
-    transform: translateY(-1px);
-    box-shadow: 0 10px 26px rgba(43, 41, 38, 0.16);
+    opacity: 0.65;
   }
 
-  /* 縁取りだけのセカンダリボタン */
+  /* セカンダリリンク：さらに淡い下線 */
   .btn-outline-holo {
-    @apply inline-block rounded-full border border-gold/30 bg-paper/60 px-8 py-3 font-medium tracking-wide text-gold transition-all duration-300 hover:border-gold/60 hover:bg-paper;
+    @apply inline-block cursor-pointer border-0 bg-transparent pb-1.5 text-sm font-normal tracking-[0.18em] text-gold/60;
+    background-image: linear-gradient(rgba(43, 41, 38, 0.3), rgba(43, 41, 38, 0.3));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 1px;
+    transition: color 0.3s ease;
+  }
+  .btn-outline-holo:hover {
+    @apply text-gold;
   }
 
-  /* カード（旧グラスカード）：白い面にごく薄い縁と影 */
+  /* カード（旧グラスカード）：箱をやめて、ヘアライン罫で始まる誌面ブロックに */
   .glass-card {
-    @apply rounded-soft border border-gold/10 bg-paper shadow-soft transition-all duration-300;
+    @apply rounded-none border-0 border-t border-gold/20 bg-transparent shadow-none transition-colors duration-300;
   }
   .glass-card:hover {
-    @apply border-gold/20;
-    box-shadow: 0 10px 30px rgba(43, 41, 38, 0.09);
-    transform: translateY(-2px);
+    @apply border-gold/40;
   }
 
-  /* 見出し（旧ホロ文字）：明朝のインク文字として読み替える */
+  /* 見出し（旧ホロ文字）：静かな明朝のインク文字 */
   .text-holo {
-    @apply font-display font-semibold text-gold;
+    @apply font-display font-normal text-gold;
   }
 
-  /* 旧シマー文字：少しやわらかいインク */
   .text-shimmer {
-    @apply font-display font-semibold text-gold-light;
+    @apply font-display font-normal text-gold-light;
   }
 
   .section-title {
-    @apply text-2xl font-semibold leading-snug tracking-wide md:text-4xl;
+    @apply font-display text-2xl font-normal leading-[1.7] tracking-[0.06em] md:text-4xl;
   }
 
-  /* 区切り線：セージの短い線（左寄せ基調だが中央でも使える） */
+  /* 区切り線：左寄せの短いヘアライン */
   .holo-divider {
-    @apply mx-auto mt-6 h-px w-16 rounded-full bg-kira-pink/70;
+    @apply mt-6 h-px w-12 bg-kira-pink/60;
+  }
+
+  /* テキストリンクの静かなマイクロインタラクション */
+  .link-quiet {
+    @apply transition-opacity duration-300 hover:opacity-60;
   }
 
   /* ブログ記事本文の共通スタイル */
   .article-body h2 {
-    @apply mt-14 border-l-2 border-kira-pink pl-4 text-2xl font-semibold tracking-wide text-gold;
+    @apply mt-14 border-t border-gold/20 pt-6 font-display text-2xl font-normal tracking-wide text-gold;
   }
   .article-body h3 {
-    @apply mt-10 text-xl font-semibold tracking-wide text-gold-light;
+    @apply mt-10 text-xl font-medium tracking-wide text-gold-light;
   }
   .article-body p {
     @apply mt-6 leading-loose text-gold/80;
@@ -77,22 +116,22 @@
     @apply mt-6 list-decimal space-y-2 pl-6 leading-loose text-gold/80 marker:font-medium marker:text-kira-pink;
   }
   .article-body strong {
-    @apply font-bold text-gold;
+    @apply font-medium text-gold;
   }
   .article-body a {
-    @apply text-kira-purple underline-offset-4 hover:underline;
+    @apply text-kira-purple underline decoration-kira-purple/40 decoration-1 underline-offset-4 transition-colors hover:decoration-kira-purple;
   }
   .article-body blockquote {
-    @apply mt-6 rounded-r-xl border-l-2 border-kira-pink bg-night-deep px-5 py-4 leading-loose text-gold/70;
+    @apply mt-6 border-l border-gold/30 pl-5 leading-loose text-gold/70;
   }
   .article-body table {
     @apply mt-6 w-full border-collapse text-sm leading-relaxed;
   }
   .article-body th {
-    @apply border border-gold/15 bg-night-deep px-3 py-2.5 text-left font-semibold text-gold;
+    @apply border-b border-gold/30 px-3 py-2.5 text-left text-xs font-medium tracking-[0.1em] text-gold/70;
   }
   .article-body td {
-    @apply border border-gold/10 bg-paper px-3 py-2.5 align-top text-gold/80;
+    @apply border-b border-gold/10 px-3 py-2.5 align-top text-gold/80;
   }
   .article-body .table-scroll {
     @apply mt-6 overflow-x-auto;

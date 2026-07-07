@@ -45,75 +45,102 @@ const sweatLines = [
 <template>
   <div class="bg-night">
     <!-- ===== 1. Hero — the scene ===== -->
-    <section class="px-5 md:px-8">
-      <div class="mx-auto grid min-h-[calc(100vh-4rem)] max-w-5xl items-center gap-12 py-20 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
+    <section class="overflow-hidden px-5 md:px-10">
+      <div class="mx-auto max-w-6xl pb-28 pt-14 md:pb-40 md:pt-24">
         <FadeIn>
-          <h1 class="font-display text-2xl font-semibold leading-loose tracking-wide md:text-4xl md:leading-[1.9]">
-            <span v-for="line in heroLines" :key="line" class="block">{{ line }}</span>
-          </h1>
-          <p class="mt-10 text-sm tracking-wide text-gold/60 md:text-base">
-            <span class="font-display lowercase">zubora</span> — 何もしてないのに、いい感じ。
-          </p>
+          <div class="flex items-baseline gap-5">
+            <span class="index-num">01</span>
+            <span class="eyebrow">scene — sunday morning</span>
+          </div>
         </FadeIn>
-        <FadeIn :delay="150">
-          <!-- 実写に差し替えるまでのプレースホルダー -->
-          <figure>
-            <div
-              class="aspect-[4/5] w-full rounded-soft border border-gold/10 bg-gradient-to-b from-paper via-night-soft to-night-deep shadow-soft"
-              role="img"
-              aria-label="日曜の朝のシーン（実写は後で差し替え）"
-            />
-            <figcaption class="mt-3 text-xs text-gold/40">日曜の朝のシーン（実写は後で差し替え）</figcaption>
-          </figure>
-        </FadeIn>
+        <div class="mt-12 grid gap-16 md:mt-16 md:grid-cols-12 md:gap-10">
+          <FadeIn class="md:col-span-7">
+            <h1 class="font-display text-[1.45rem] font-normal leading-[2.3] tracking-[0.05em] md:text-[2.4rem] md:leading-[2.1]">
+              <span v-for="line in heroLines" :key="line" class="block">{{ line }}</span>
+            </h1>
+            <p class="mt-14 text-xs tracking-[0.15em] text-gold/50">
+              <span class="font-display lowercase tracking-[0.2em]">zubora</span> — 何もしてないのに、いい感じ。
+            </p>
+          </FadeIn>
+          <FadeIn :delay="150" class="md:col-span-5 md:mt-28">
+            <!-- 実写に差し替えるまでのプレースホルダー（右端へ少しはみ出す） -->
+            <figure class="md:-mr-10 lg:-mr-24">
+              <div
+                class="film-frame aspect-[4/5] w-full rotate-[0.6deg]"
+                role="img"
+                aria-label="日曜の朝のシーン（実写は後で差し替え）"
+              />
+              <figcaption class="caption">日曜の朝のシーン（実写は後で差し替え）</figcaption>
+            </figure>
+          </FadeIn>
+        </div>
       </div>
     </section>
 
     <!-- ===== 2. The question ===== -->
-    <section class="bg-night-deep px-5 py-28 md:px-8 md:py-36">
-      <div class="mx-auto max-w-5xl">
-        <FadeIn>
-          <p class="max-w-2xl font-display text-lg leading-loose text-gold/70 md:text-xl md:leading-[2.1]">
-            <span v-for="line in questionLines" :key="line" class="block">{{ line }}</span>
-          </p>
-          <p class="mt-14 font-display text-3xl font-semibold leading-snug tracking-wide md:text-5xl">
-            本当に、分ける必要ある？
-          </p>
-        </FadeIn>
+    <section class="bg-night-deep px-5 py-32 md:px-10 md:py-52">
+      <div class="mx-auto max-w-6xl">
+        <div class="md:ml-[26%]">
+          <FadeIn>
+            <div class="flex items-baseline gap-5">
+              <span class="index-num">02</span>
+              <span class="eyebrow">a question</span>
+            </div>
+            <p class="mt-10 max-w-xl font-display text-lg leading-[2.2] text-gold/70 md:text-xl md:leading-[2.2]">
+              <span v-for="line in questionLines" :key="line" class="block">{{ line }}</span>
+            </p>
+            <div class="mt-14 h-px w-12 bg-gold/30" aria-hidden="true" />
+            <p class="mt-12 font-display text-3xl font-normal leading-[1.6] tracking-[0.04em] md:text-5xl md:leading-[1.5]">
+              本当に、分ける必要ある？
+            </p>
+          </FadeIn>
+        </div>
       </div>
     </section>
 
     <!-- ===== 3. Products as props ===== -->
-    <section class="px-5 py-24 md:px-8 md:py-32">
-      <div class="mx-auto max-w-5xl">
+    <section class="px-5 py-28 md:px-10 md:py-44">
+      <div class="mx-auto max-w-6xl">
         <FadeIn>
-          <p class="text-sm tracking-wide text-kira-pink">シーンの中にあるもの</p>
+          <div class="flex items-baseline gap-5">
+            <span class="index-num">03</span>
+            <span class="eyebrow">product</span>
+          </div>
+          <p class="mt-6 text-sm tracking-[0.1em] text-kira-pink">シーンの中にあるもの</p>
         </FadeIn>
-        <div class="mt-10 grid gap-6 md:grid-cols-2">
-          <FadeIn>
-            <div class="glass-card flex h-full flex-col p-9 md:p-10">
-              <p class="text-xs tracking-widest text-gold/50">泡クレンザー / 発売中</p>
-              <h2 class="mt-3 font-display text-2xl font-semibold lowercase tracking-wide">zubora foam</h2>
-              <p class="mt-6 flex-1 leading-loose text-gold/80">
-                <span v-for="line in foamLines" :key="line" class="block">{{ line }}</span>
-              </p>
-              <div class="mt-8">
-                <NuxtLink to="/products/" class="btn-holo">詳しく見る</NuxtLink>
-              </div>
+        <div class="mt-16 grid gap-24 md:mt-24 md:grid-cols-12 md:gap-10">
+          <!-- foam : 大きめの誌面フィーチャー -->
+          <FadeIn class="md:col-span-7">
+            <figure>
+              <div class="film-frame aspect-[4/3] w-full -rotate-[0.4deg]" role="img" aria-label="zubora foam のイメージ（実写は後で差し替え）" />
+              <figcaption class="caption">zubora foam</figcaption>
+            </figure>
+            <p class="eyebrow mt-10">01 — foam</p>
+            <p class="mt-4 text-[11px] tracking-[0.2em] text-gold/50">泡クレンザー / 発売中</p>
+            <h2 class="mt-3 font-display text-3xl font-normal lowercase tracking-[0.08em] md:text-4xl">zubora foam</h2>
+            <p class="mt-8 max-w-md leading-loose text-gold/80">
+              <span v-for="line in foamLines" :key="line" class="block">{{ line }}</span>
+            </p>
+            <div class="mt-10">
+              <NuxtLink to="/products/" class="btn-holo">詳しく見る</NuxtLink>
             </div>
           </FadeIn>
-          <FadeIn :delay="120">
-            <div class="glass-card flex h-full flex-col p-9 md:p-10">
-              <p class="text-xs tracking-widest text-gold/50">スウェット / 近日</p>
-              <h2 class="mt-3 font-display text-2xl font-semibold lowercase tracking-wide">zubora sweat</h2>
-              <p class="mt-6 flex-1 leading-loose text-gold/80">
-                <span v-for="line in sweatLines" :key="line" class="block">{{ line }}</span>
-              </p>
-              <div class="mt-8">
-                <span class="inline-block cursor-default rounded-full border border-gold/20 bg-night-soft px-9 py-3.5 text-base font-medium tracking-wide text-gold/50" aria-disabled="true">
-                  近日
-                </span>
-              </div>
+          <!-- sweat : 少し下げて、細く -->
+          <FadeIn :delay="120" class="md:col-span-4 md:col-start-9 md:mt-40">
+            <figure>
+              <div class="film-frame aspect-[3/4] w-full rotate-[0.5deg]" role="img" aria-label="zubora sweat のイメージ（実写は後で差し替え）" />
+              <figcaption class="caption">zubora sweat</figcaption>
+            </figure>
+            <p class="eyebrow mt-10">02 — sweat</p>
+            <p class="mt-4 text-[11px] tracking-[0.2em] text-gold/50">スウェット / 近日</p>
+            <h2 class="mt-3 font-display text-2xl font-normal lowercase tracking-[0.08em] md:text-3xl">zubora sweat</h2>
+            <p class="mt-8 leading-loose text-gold/80">
+              <span v-for="line in sweatLines" :key="line" class="block">{{ line }}</span>
+            </p>
+            <div class="mt-10">
+              <span class="inline-block pb-1.5 text-sm tracking-[0.18em] text-gold/40" aria-disabled="true">
+                近日
+              </span>
             </div>
           </FadeIn>
         </div>
@@ -121,10 +148,11 @@ const sweatLines = [
     </section>
 
     <!-- ===== 4. Family / unisex ===== -->
-    <section class="bg-night-deep px-5 py-28 md:px-8 md:py-32">
-      <div class="mx-auto max-w-5xl">
-        <FadeIn>
-          <p class="max-w-2xl font-display text-xl leading-loose tracking-wide md:text-2xl md:leading-[2]">
+    <section class="bg-night-deep px-5 py-32 md:px-10 md:py-48">
+      <div class="mx-auto max-w-6xl md:flex md:justify-end">
+        <FadeIn class="md:w-3/5">
+          <span class="eyebrow">family</span>
+          <p class="mt-10 font-display text-xl leading-[2.1] tracking-[0.04em] md:text-2xl md:leading-[2.1]">
             父親と母親が、同じスウェット。<br />
             子供と、同じ泡。<br />
             押しつけじゃなくて、なんか自然に、そうなってる。
@@ -134,13 +162,13 @@ const sweatLines = [
     </section>
 
     <!-- ===== 5. For whom / not for whom ===== -->
-    <section class="px-5 py-24 md:px-8 md:py-32">
-      <div class="mx-auto max-w-5xl">
-        <div class="grid gap-6 md:grid-cols-2">
+    <section class="px-5 py-24 md:px-10 md:py-36">
+      <div class="mx-auto max-w-6xl">
+        <div class="grid gap-14 md:grid-cols-[5fr_2fr_5fr]">
           <FadeIn>
-            <div class="glass-card h-full p-8 md:p-9">
-              <h2 class="text-lg font-semibold tracking-wide">こんな人に</h2>
-              <ul class="mt-5 space-y-3 text-sm leading-loose text-gold/70">
+            <div class="border-t border-gold/25 pt-7">
+              <h2 class="text-base font-normal tracking-[0.12em]">こんな人に</h2>
+              <ul class="mt-7 space-y-4 text-sm leading-loose text-gold/70">
                 <li class="flex gap-3">
                   <span class="mt-0.5 text-kira-pink" aria-hidden="true">○</span>
                   <span>朝がとにかく無い人。</span>
@@ -152,10 +180,11 @@ const sweatLines = [
               </ul>
             </div>
           </FadeIn>
-          <FadeIn :delay="100">
-            <div class="glass-card h-full p-8 md:p-9">
-              <h2 class="text-lg font-semibold tracking-wide">こんな人には、たぶん向かない</h2>
-              <ul class="mt-5 space-y-3 text-sm leading-loose text-gold/70">
+          <div class="hidden md:block" aria-hidden="true" />
+          <FadeIn :delay="100" class="md:mt-16">
+            <div class="border-t border-gold/25 pt-7">
+              <h2 class="text-base font-normal tracking-[0.12em]">こんな人には、たぶん向かない</h2>
+              <ul class="mt-7 space-y-4 text-sm leading-loose text-gold/70">
                 <li class="flex gap-3">
                   <span class="mt-0.5 text-kira-cyan" aria-hidden="true">△</span>
                   <span>がっつりスタイリングする人。</span>
@@ -165,7 +194,7 @@ const sweatLines = [
                   <span>脂性の頭皮の人。</span>
                 </li>
               </ul>
-              <p class="mt-6 text-xs leading-loose text-gold/50">
+              <p class="mt-7 text-xs leading-loose text-gold/50">
                 正直に言うと、合わないと思う。無理はしないでください。
               </p>
             </div>
@@ -175,10 +204,12 @@ const sweatLines = [
     </section>
 
     <!-- ===== 6. Closing CTA ===== -->
-    <section class="bg-night-deep px-5 py-24 md:px-8 md:py-28">
-      <div class="mx-auto max-w-5xl">
+    <section class="bg-night-deep px-5 py-28 md:px-10 md:py-40">
+      <div class="mx-auto max-w-6xl">
         <FadeIn>
-          <NuxtLink to="/products/" class="btn-holo">とりあえず、見てみる</NuxtLink>
+          <div class="md:ml-[26%]">
+            <NuxtLink to="/products/" class="btn-holo">とりあえず、見てみる</NuxtLink>
+          </div>
         </FadeIn>
       </div>
     </section>

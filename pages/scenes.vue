@@ -53,13 +53,14 @@ const tips = [
 <template>
   <div class="bg-night">
     <!-- ===== Page Header ===== -->
-    <section class="px-5 pb-16 pt-20 md:px-8 md:pt-28">
-      <div class="mx-auto max-w-5xl">
+    <section class="px-5 pb-20 pt-14 md:px-10 md:pb-32 md:pt-24">
+      <div class="mx-auto max-w-6xl">
         <FadeIn>
-          <h1 class="font-display text-2xl font-semibold leading-loose tracking-wide md:text-4xl">
+          <span class="eyebrow">scene — how to use</span>
+          <h1 class="mt-10 font-display text-2xl font-normal leading-[2] tracking-[0.05em] md:text-[2.6rem] md:leading-[1.9]">
             朝、シャワーで、ポンポンポン。<br />これで終わり。
           </h1>
-          <p class="mt-6 max-w-2xl leading-loose text-gold/70">
+          <p class="mt-10 max-w-xl leading-loose text-gold/70 md:ml-[8%]">
             使い方は、プッシュの回数だけ。1、2、3。それ以上覚えることは、たぶんありません。
           </p>
         </FadeIn>
@@ -67,19 +68,24 @@ const tips = [
     </section>
 
     <!-- ===== Push Rule ===== -->
-    <section class="bg-night-deep px-5 py-24 md:px-8">
-      <div class="mx-auto max-w-5xl">
+    <section class="bg-night-deep px-5 py-28 md:px-10 md:py-44">
+      <div class="mx-auto max-w-6xl">
         <FadeIn>
-          <p class="text-sm tracking-wide text-kira-purple">push rule</p>
-          <h2 class="section-title mt-4 font-display">1・2・3の泡。</h2>
+          <span class="eyebrow">push rule</span>
+          <h2 class="section-title mt-6 font-display">1・2・3の泡。</h2>
         </FadeIn>
-        <div class="mt-12 grid gap-6 md:grid-cols-3">
-          <FadeIn v-for="(rule, i) in pushRule" :key="rule.target" :delay="i * 100">
-            <div class="glass-card h-full p-8">
-              <p class="font-display text-5xl font-semibold text-kira-pink">{{ rule.count }}</p>
-              <p class="mt-2 text-sm tracking-widest text-gold/50">push</p>
-              <h3 class="mt-4 text-xl font-semibold tracking-wide">{{ rule.target }}</h3>
-              <p class="mt-3 text-sm leading-loose text-gold/70">{{ rule.body }}</p>
+        <div class="mt-16 grid gap-16 md:mt-24 md:grid-cols-3 md:gap-10">
+          <FadeIn
+            v-for="(rule, i) in pushRule"
+            :key="rule.target"
+            :delay="i * 100"
+            :class="{ 'md:mt-14': i === 1, 'md:mt-28': i === 2 }"
+          >
+            <div class="border-t border-gold/25 pt-8">
+              <p class="font-display text-7xl font-normal leading-none text-kira-pink/90 md:text-8xl">{{ rule.count }}</p>
+              <p class="eyebrow mt-5">push</p>
+              <h3 class="mt-6 font-display text-xl font-normal tracking-[0.1em]">{{ rule.target }}</h3>
+              <p class="mt-4 text-sm leading-loose text-gold/70">{{ rule.body }}</p>
             </div>
           </FadeIn>
         </div>
@@ -87,17 +93,20 @@ const tips = [
     </section>
 
     <!-- ===== Daily Flow ===== -->
-    <section class="px-5 py-24 md:px-8">
-      <div class="mx-auto max-w-5xl">
+    <section class="px-5 py-28 md:px-10 md:py-44">
+      <div class="mx-auto max-w-6xl">
         <FadeIn>
-          <p class="text-sm tracking-wide text-kira-purple">daily</p>
-          <h2 class="section-title mt-4 font-display">毎日は、こんな感じ。</h2>
+          <span class="eyebrow">daily</span>
+          <h2 class="section-title mt-6 font-display">毎日は、こんな感じ。</h2>
         </FadeIn>
-        <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <div class="mt-16 max-w-2xl md:ml-[26%] md:mt-20">
           <FadeIn v-for="(flow, i) in dailyFlow" :key="flow.time" :delay="i * 100">
-            <div class="glass-card h-full p-8">
-              <h3 class="text-lg font-semibold tracking-wide">{{ flow.time }}</h3>
-              <p class="mt-3 text-sm leading-loose text-gold/70">{{ flow.body }}</p>
+            <div class="grid gap-3 border-t border-gold/15 py-9 md:grid-cols-[auto_1fr] md:gap-10">
+              <span class="index-num pt-1">0{{ i + 1 }}</span>
+              <div>
+                <h3 class="font-display text-lg font-normal tracking-[0.06em]">{{ flow.time }}</h3>
+                <p class="mt-3 text-sm leading-loose text-gold/70">{{ flow.body }}</p>
+              </div>
             </div>
           </FadeIn>
         </div>
@@ -105,28 +114,31 @@ const tips = [
     </section>
 
     <!-- ===== Tips ===== -->
-    <section class="bg-night-deep px-5 py-24 md:px-8">
-      <div class="mx-auto max-w-5xl">
+    <section class="bg-night-deep px-5 py-24 md:px-10 md:py-32">
+      <div class="mx-auto max-w-6xl">
         <FadeIn>
-          <h2 class="text-xl font-semibold tracking-wide">ちいさな補足</h2>
-          <ul class="mt-6 max-w-2xl space-y-3 text-sm leading-loose text-gold/70">
-            <li v-for="tip in tips" :key="tip" class="flex gap-3">
-              <span class="mt-0.5 text-kira-pink" aria-hidden="true">・</span>
-              <span>{{ tip }}</span>
-            </li>
-          </ul>
+          <div class="max-w-xl border-t border-gold/25 pt-7">
+            <span class="eyebrow">notes</span>
+            <h2 class="mt-5 text-base font-normal tracking-[0.12em]">ちいさな補足</h2>
+            <ul class="mt-7 space-y-4 text-xs leading-loose text-gold/60">
+              <li v-for="tip in tips" :key="tip" class="flex gap-3">
+                <span class="mt-0.5 text-kira-pink" aria-hidden="true">・</span>
+                <span>{{ tip }}</span>
+              </li>
+            </ul>
+          </div>
         </FadeIn>
       </div>
     </section>
 
     <!-- ===== Quiet CTA ===== -->
-    <section class="px-5 py-20 md:px-8">
-      <div class="mx-auto max-w-5xl">
-        <FadeIn>
+    <section class="px-5 py-24 md:px-10 md:py-36">
+      <div class="mx-auto max-w-6xl md:flex md:justify-end">
+        <FadeIn class="md:w-3/5">
           <p class="font-display text-xl leading-relaxed text-gold/80">
             覚えました？ たぶん、もう大丈夫です。
           </p>
-          <div class="mt-8">
+          <div class="mt-10">
             <NuxtLink to="/products/" class="btn-holo">とりあえず、見てみる</NuxtLink>
           </div>
         </FadeIn>

@@ -44,7 +44,11 @@ export default {
         display: [...brand.fonts.display],
       },
       borderRadius: {
-        soft: '1.25rem',
+        // 誌面ふうにほぼスクエア。角丸はごく控えめに
+        soft: '2px',
+      },
+      letterSpacing: {
+        editorial: '0.25em',
       },
       animation: {
         'float-slow': 'float-slow 6s ease-in-out infinite',
@@ -56,12 +60,12 @@ export default {
         },
       },
       boxShadow: {
-        // 旧テーマの glow 系キーは「やわらかい影」に読み替えて維持する
-        'glow-gold': '0 10px 30px rgba(43, 41, 38, 0.08)',
-        'glow-pink': '0 10px 30px rgba(138, 154, 130, 0.18)',
-        'glow-cyan': '0 10px 30px rgba(184, 174, 156, 0.20)',
-        'glow-purple': '0 10px 30px rgba(154, 170, 180, 0.20)',
-        soft: '0 6px 24px rgba(43, 41, 38, 0.06)',
+        // 旧テーマの glow 系キーは「ごくやわらかい影」に読み替えて維持する
+        'glow-gold': '0 8px 24px rgba(43, 41, 38, 0.05)',
+        'glow-pink': '0 8px 24px rgba(138, 154, 130, 0.12)',
+        'glow-cyan': '0 8px 24px rgba(184, 174, 156, 0.14)',
+        'glow-purple': '0 8px 24px rgba(154, 170, 180, 0.14)',
+        soft: '0 4px 18px rgba(43, 41, 38, 0.04)',
       },
     },
   },
